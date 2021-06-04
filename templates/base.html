@@ -15,6 +15,51 @@
 </head>
 
 <body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar">
+            <input type="checkbox" id="check" class="checkbox" hidden />
+            <!-- Hamburger Icon -->
+            <div class="hamburger-menu">
+                <label for="check" class="menu">
+                    <div class="menu-line menu-line-1"></div>
+                    <div class="menu-line menu-line-2"></div>
+                    <div class="menu-line menu-line-3"></div>
+                </label>
+            </div>
+            <!-- Full screen navbar menu -->
+            <div class="navbar-navigation">
+                <!-- Navbar Image -->
+                <div class="navbar-navigation-left">
+                    <img src="#" alt="" class="left-img left-img-1" />
+                </div>
+                <!-- Navbar Links -->
+                <div class="navbar-navigation-right">
+                    <ul class="nav-list">
+                        <li class="nav-list-item">
+                            <a href="#" class="nav-list-link">Home</a>
+                        </li>
+                        <li class="nav-list-item">
+                            <a href="#" class="nav-list-link">Supper Club</a>
+                        </li>
+                        <li class="nav-list-item">
+                            <a href="#" class="nav-list-link">Create Event</a>
+                        </li>
+                        <li class="nav-list-item">
+                            <a href="#" class="nav-list-link">Register</a>
+                        </li>
+                        <li class="nav-list-item">
+                            <a href="#" class="nav-list-link">Sign In</a>
+                        </li>
+                        <li class="nav-list-item">
+                            <a href="#" class="nav-list-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     {% block content %}
     {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
