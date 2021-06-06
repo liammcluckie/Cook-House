@@ -30,7 +30,7 @@
         <div class="navbar-navigation">
             <!-- Navbar Image -->
             <div class="navbar-navigation-left">
-                <img src="static/images/logo.png" alt="" class="left-img" />
+                <img src="static/images/logo.png" alt="Cook House Logo" class="left-img" />
             </div>
             <!-- Navbar Links -->
             <div class="navbar-navigation-right">
@@ -58,9 +58,20 @@
         </div>
     </nav>
     <!-- End of Navbar -->
+    <!-- Header -->
     <header>
+        <div class="container-fluid hero">
+            <div class="row">
+                <div class="col-6 bg-primary-color hero-left">
+                    <img src="static/images/logo.png" alt="Cook House Logo">
+                    <h1>Lorem Ipsum Dolor Amet</h1>
+                    <button type="button" class="uppercase">Register</button>
+                </div>
+                <div class="col-6 hero-right"></div>
+            </div>
+        </div>
     </header>
-
+    <!-- End of Header -->
     {% block content %}
     {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
