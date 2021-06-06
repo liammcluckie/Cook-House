@@ -59,6 +59,16 @@ li {
     list-style: none;
 }
 
+button {
+    border-radius: 2px;
+    border: 1px solid var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.75rem 2rem;
+    background-color: var(--secondary-color);
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+}
+
 /* Utility Classes */
 
 .uppercase {
@@ -69,11 +79,11 @@ li {
     display: none;
 }
 
-.bg-primary {
+.bg-primary-color {
     background-color: var(--primary-color);
 }
 
-.bg-secondary {
+.bg-secondary-color {
     background-color: var(--secondary-color);
 }
 
@@ -196,5 +206,25 @@ li {
     letter-spacing: 3px;
     text-decoration: underline;
     color: var(--accent-color);
+}
+
+/* Header/Hero */
+
+.hero { 
+    height: 100vh;
+}
+
+.hero-left {
+    text-align: center;
+    height: 100vh;
+}
+
+.hero-left > img {
+    width: 50%;
+}
+
+.hero-left > h1 {
+    color: var(--accent-color);
+    margin-bottom: 2.5rem;
 }
   
