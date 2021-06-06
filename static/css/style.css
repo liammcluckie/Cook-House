@@ -1,0 +1,72 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&family=Open+Sans:wght@300;400;700&display=swap');
+
+/* Style Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+
+:root {
+    --primary-color: #075570; 
+    --secondary-color: #f1f1e6;
+    --accent-color: #ffc145;
+    --font-title: "Lora", serif;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Lora", serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+/* Utility Classes */
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.hidden {
+    display: none;
+}
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color);
+}
