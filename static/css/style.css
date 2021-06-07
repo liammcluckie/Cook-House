@@ -266,9 +266,10 @@ button:focus {
 }
 
 .hero-right {
-    background: url("../images/home-hero.jpg") no-repeat center;
-    background-size: cover;
-    background-attachment: scroll;
+    background: url("../images/home-hero.jpg") no-repeat;
+    background-position: 200%;
+    background-size: contain;
+    background-attachment: fixed;
 }
 
 @media (max-width: 960px) {
@@ -278,6 +279,10 @@ button:focus {
 
     .hero-right {
         height: 50vh;
+        background-position: center;
+        background-size: cover;
+        background-attachment: scroll;
+
     }
 }
 
@@ -306,6 +311,28 @@ button:focus {
     }
 }
 
+/* About Section */
+
+.about-image-first {
+    background: url("https://images.unsplash.com/photo-1621112904887-419379ce6824?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.about-image-second {
+    background: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.about-image-third {
+    background: url("https://images.unsplash.com/photo-1519671619280-fd2b53b38ec2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
 /* Ipad Pro Media Query */
 
 @media only screen 
