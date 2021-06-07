@@ -15,6 +15,10 @@
     box-sizing: border-box;
 }
 
+ol, ul {
+    padding-left: 0!important;
+}
+
 /* Global Styles */
 
 :root {
@@ -27,7 +31,7 @@
 
 body {
     font-family: "Open Sans", sans-serif;
-    line-height: 1;
+    line-height: 1.25;
     font-size: 16px;
     letter-spacing: 0.5px;
 }
@@ -64,9 +68,24 @@ button {
     border: 1px solid var(--accent-color);
     color: var(--primary-color);
     padding: 0.75rem 2rem;
-    background-color: var(--secondary-color);
+    background: linear-gradient(to right, transparent 50%, var(--secondary-color) 50%);
+    background-size: 205%;
+    background-position: right bottom;
+    transition: all .3s;
     font-family: var(--font-title);
     font-size: 1.25rem;
+}
+
+@media (max-width: 480px) {
+    button {
+        font-size: 0.75rem;
+    }
+}
+
+button:hover,
+button:focus {
+    color: var(--accent-color);
+    background-position: left bottom;
 }
 
 /* Utility Classes */
@@ -97,6 +116,14 @@ button {
     top: 10%;
     z-index: 300;
     right: 5%;
+}
+
+@media (max-width: 480px) {
+    .hamburger-menu {
+        width: 30px;
+        height: 30px;
+        top: 5%;
+    }
 }
 
 .menu {
@@ -217,14 +244,92 @@ button {
 .hero-left {
     text-align: center;
     height: 100vh;
+    background-color: var(--primary-color);
+    background-image: url("../images/hero-bg.svg");
 }
 
 .hero-left > img {
+    padding: 3rem 0 7rem 0;
     width: 50%;
 }
 
 .hero-left > h1 {
     color: var(--accent-color);
-    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
 }
-  
+
+.hero-left > p {
+    color: var(--secondary-color);
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    padding-bottom: 2rem;
+}
+
+.hero-right {
+    background: url("../images/home-hero.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: scroll;
+}
+
+@media (max-width: 960px) {
+    .hero-left {
+        height: 50vh;
+    }
+
+    .hero-right {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 800px) {
+    .hero-left > img {
+        padding: 0.5rem 0 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-left {
+        height: 65vh;
+    }
+
+    .hero-left > img {
+        min-width: 75%;
+        float: left;
+    }
+
+    .hero-left > h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-left > p {
+        font-size: 1rem;
+    }
+}
+
+/* Ipad Pro Media Query */
+
+@media only screen 
+    and (min-width: 1024px) and (max-width: 1026px)
+    and (max-height: 1366px) 
+    and (-webkit-min-device-pixel-ratio: 1.5) {
+
+        /* Header/hero */
+
+        .hero-left > img {
+            width: 100%;
+        }
+
+        .hero-left > h1 {
+            font-size: 2.75rem;
+            padding-bottom: 3.75rem;
+        }
+    
+        .hero-left > p {
+            font-size: 1.75rem;
+            padding-bottom: 2.75rem;
+        }
+
+        button {
+            font-size: 1.75rem;
+        }
+    }
