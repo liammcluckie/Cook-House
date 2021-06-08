@@ -384,6 +384,7 @@ button:focus {
     }
 
 }
+
 /* Ipad Pro Media Query */
 
 @media only screen 
@@ -393,8 +394,27 @@ button:focus {
 
         /* Header/hero */
 
-        .hero-left > img {
+        .hero-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-right {
+            background-attachment: scroll;
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
             width: 100%;
+        }
+
+        .hero-left {
+            height: 50vh;
+            width: 100%;
+        }
+
+        .hero-left > img {
+            width: 50%;
+            padding-bottom: 1.5rem;
         }
 
         .hero-left > h1 {
