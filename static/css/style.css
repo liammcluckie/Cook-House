@@ -66,12 +66,12 @@ li {
 button {
     border-radius: 2px;
     border: 1px solid var(--accent-color);
-    color: var(--primary-color);
+    color: var(--primary-color-dark);
     padding: 0.75rem 2rem;
     background: linear-gradient(to right, transparent 50%, var(--secondary-color) 50%);
     background-size: 205%;
     background-position: right bottom;
-    transition: all .3s;
+    transition: all .5s;
     font-family: var(--font-title);
     font-size: 1.25rem;
 }
@@ -104,6 +104,24 @@ button:focus {
 
 .bg-secondary-color {
     background-color: var(--secondary-color);
+}
+
+.light-pattern-bg {
+    background-image: url("../images/bg-light.svg");
+    background-color: var(--secondary-color);
+}
+
+.dark-pattern-bg {
+    background-image: url("../images/bg-dark.svg");
+    background-color: var(--primary-color);
+}
+
+.dark-text {
+    color: var(--primary-color-dark)
+}
+
+.light-text {
+    color: var(--secondary-color);
 }
 
 /* Navbar */
@@ -244,8 +262,6 @@ button:focus {
 .hero-left {
     text-align: center;
     height: 100vh;
-    background-color: var(--primary-color);
-    background-image: url("../images/hero-bg.svg");
 }
 
 .hero-left > img {
@@ -266,8 +282,7 @@ button:focus {
 }
 
 .hero-right {
-    background: url("../images/home-hero.jpg") no-repeat;
-    background-position: 200%;
+    background: url("../images/home-hero.jpg") no-repeat right;
     background-size: contain;
     background-attachment: fixed;
 }
@@ -313,23 +328,38 @@ button:focus {
 
 /* About Section */
 
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-content > h2 {
+    padding-bottom: 2rem;
+}
+
+.about-content > p {
+    padding: 0 1.5rem;
+}
+
 .about-image-first {
-    background: url("https://images.unsplash.com/photo-1621112904887-419379ce6824?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80") no-repeat center;
-    background-size: cover;
+    background: url("../images/about-image-first.jpg") no-repeat right;
+    background-size: contain;
     background-attachment: fixed;
     height: 100vh;
 }
 
 .about-image-second {
-    background: url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center;
-    background-size: cover;
+    background: url("../images/about-image-second.jpg") no-repeat left;
+    background-size: contain;
     background-attachment: fixed;
     height: 100vh;
 }
 
 .about-image-third {
-    background: url("https://images.unsplash.com/photo-1519671619280-fd2b53b38ec2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80") no-repeat center;
-    background-size: cover;
+    background: url("../images/about-image-third.jpg") no-repeat right;
+    background-size: contain;
     background-attachment: fixed;
     height: 100vh;
 }
