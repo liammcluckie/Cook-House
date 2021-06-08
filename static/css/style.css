@@ -303,6 +303,11 @@ button:focus {
         background-attachment: scroll;
 
     }
+
+    .column-reverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
 
 @media (max-width: 800px) {
@@ -451,5 +456,10 @@ button:focus {
             background-size: cover;
             height: 50vh;
             width: 100%
+        }
+
+        .column-reverse {
+            display: flex;
+            flex-direction: column-reverse;
         }
     }
