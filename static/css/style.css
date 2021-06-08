@@ -26,12 +26,13 @@ ol, ul {
     --primary-color-dark: #06445a; 
     --secondary-color: #f1f1e6;
     --accent-color: #ffc145;
+    --accent-color-dark: #cc9a37;
     --font-title: "Lora", serif;
 }
 
 body {
     font-family: "Open Sans", sans-serif;
-    line-height: 1.25;
+    line-height: 1.5;
     font-size: 16px;
     letter-spacing: 0.5px;
 }
@@ -51,12 +52,15 @@ img {
 a {
     text-decoration: none;
     cursor: pointer;
+    color: var(--accent-color);
 }
 
 a:hover,
 a:focus,
 a:active {
     text-decoration: none;
+    color: var(--accent-color-dark);
+    text-decoration: underline;
 }
 
 li {
@@ -363,6 +367,23 @@ button:focus {
     background-attachment: fixed;
     height: 100vh;
 }
+
+@media (max-width: 960px) {
+
+    .about-image-first,
+    .about-image-second,
+    .about-image-third {
+        background-attachment: scroll;
+        background-position: center;
+        background-size: cover;
+        height: 50vh;
+    }
+
+    .about-content {
+        padding: 2rem 0;
+    }
+
+}
 /* Ipad Pro Media Query */
 
 @media only screen 
@@ -388,5 +409,27 @@ button:focus {
 
         button {
             font-size: 1.75rem;
+        }
+
+        /* About Section */
+
+        .about-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-content {
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        .about-image-first,
+        .about-image-second,
+        .about-image-third {
+            background-attachment: scroll;
+            background-position: center;
+            background-size: cover;
+            height: 50vh;
+            width: 100%
         }
     }
