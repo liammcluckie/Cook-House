@@ -430,6 +430,76 @@ button:focus {
     transition: left 0.7s;
 }
 
+/* Footer */
+
+.footer-logo {
+    margin: 0 auto;
+}
+
+.footer-nav {
+    margin-left: 1.5rem;
+    font-size: 1.25rem;
+    padding-top: 4rem;
+}
+
+.footer-nav-item {
+    margin-bottom: 0.75rem;
+}
+
+.footer-social {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    color: var(--accent-color);
+}
+
+.footer-social > i{
+    margin: 0 1.5rem;
+    font-size: 3rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-social > i:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    color: var(--accent-color-dark);
+}
+
+.copyright {
+    text-align: center;
+    color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+    .footer-logo {
+        order: -1;
+    }
+
+    .footer-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-top: 2rem;
+    }
+
+    .footer-social {
+        justify-content: center;
+        margin-bottom: 2rem;
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-nav {
+        font-size: 0.75rem;
+        margin-left: 0;
+    }
+
+    .footer-nav-item {
+        padding: 0 0.5rem;
+    }
+}
+
 /* Ipad Pro Media Query */
 
 @media only screen 
