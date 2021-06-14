@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <header>
+        <div class="container-fluid dark-pattern-bg">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="static/images/logo-transparent.png" alt="Cook House Logo">
+                    <h1 class="page-title">Contact Us</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Contact Form -->
+    <section>
+        <div class="container-fluid light-pattern-bg align-items-center">
+            <div class="row">
+                <div class="col-lg-4 text-center center mt-5 contact-intro">
+                    <h2>Want to Know More?</h2>
+                    <h3>Get in Touch</h3>
+                    <i class="fas fa-arrow-circle-down"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12 center">
+                    <form>
+                        <div class="mb-3 mt-3 contact-names">
+                            <div>
+                                <label for="fname" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="fname" placeholder="First Name" required>
+                            </div>
+                            <div>
+                                <label for="lname" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lname" placeholder="Last Name" required>
+                            </div>
+                          </div>
+                        <div class="mb-4 text-center center contact-email">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="mb-4 text-center contact-message">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea type="text" class="form-control" id="message" placeholder="Please Type Your Message Here..." rows="5" required></textarea>
+                        </div>
+                        <div class="mb-4 text-center">
+                            <button type="submit" class="button button--alt">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock %}
