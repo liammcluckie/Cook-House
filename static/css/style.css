@@ -481,6 +481,8 @@ form {
 
 input:active,
 input:focus,
+textarea:active,
+textarea:focus,
 label:focus {
     border: 2px solid var(--accent-color)!important;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px!important
@@ -488,6 +490,69 @@ label:focus {
 
 .form-control {
     border: 1px solid var(--primary-color);
+}
+
+/* Contact Form */
+
+.contact-intro {
+    color: var(--primary-color-dark);
+}
+
+.contact-intro > i {
+    font-size: 2rem;
+    transform: scale(1);
+    animation: pulse 2s infinite;
+    border-radius: 50%;
+}
+
+/* Code for animation https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
+.contact-names {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.contact-email {
+    width: 80%;
+}
+
+@media (max-width: 1080px) {
+
+    .contact-names {
+        flex-direction: column;
+    }
+
+    .contact-names > div:first-child {
+        margin-bottom: 1.25rem;
+    }
+
+    .contact-message {
+        text-align: left!important;
+    }
+
+    .contact-email {
+        width: 100%;
+        text-align: left!important;
+    }
 }
 
 /* Footer */
