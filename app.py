@@ -44,6 +44,11 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/create-event")
+def create_event():
+    return render_template("create-event.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
             port=int(os.environ.get("PORT")),
