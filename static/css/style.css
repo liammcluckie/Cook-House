@@ -41,7 +41,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+legend {
     font-family: "Lora", serif;
 }
 
@@ -479,22 +480,31 @@ form {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+legend {
+    font-size: 1.5rem;
+    color: var(--primary-color-dark);
+}
+
 input:active,
 input:focus,
 textarea:active,
 textarea:focus,
+select:active,
+select:focus,
 label:focus {
     border: 2px solid var(--accent-color)!important;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px!important
 }
 
-.form-control {
+.form-control,
+.form-select {
     border: 1px solid var(--primary-color);
 }
 
 /* Contact Form */
 
-.contact-intro {
+.contact-intro,
+.event-intro {
     color: var(--primary-color-dark);
 }
 
@@ -525,7 +535,8 @@ label:focus {
     }
 }
 
-.contact-names {
+.contact-names,
+.event-form-row {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -553,6 +564,17 @@ label:focus {
         width: 100%;
         text-align: left!important;
     }
+}
+
+/* Create Event */
+
+.event-form-menu-title {
+    font-size: 1.5rem;
+    color: var(--primary-color-dark);
+}
+
+.event-message-title {
+    margin-bottom: .5rem;
 }
 
 /* Footer */
