@@ -568,13 +568,17 @@ label:focus {
 
 /* Create Event */
 
+.event-intro > h2 {
+    padding-bottom: 1rem;
+}
+
 .event-form-menu-title {
     font-size: 1.5rem;
     color: var(--primary-color-dark);
 }
 
 .event-message-title {
-    margin-bottom: .5rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Footer */
