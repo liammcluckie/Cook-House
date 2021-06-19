@@ -37,7 +37,7 @@ def register():
             {"username": request.form.get("username").lower()})
         
         if existing_user:
-            flash("Username already exists")
+            flash("Sorry username already exists")
             return redirect(url_for("register"))
         
         register = {
