@@ -50,6 +50,8 @@ def register():
         # put the new user into 'session'
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["user"]))
+    
     return render_template("register.html")
 
 
@@ -65,18 +67,29 @@ def sign_in():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Hello, {}! Welcome to cook house".format(request.form.get("username")))
+                    flash("Hello, {}! Welcome to cook house".format(
+                        request.form.get("username")))
+                    return redirect(url_for(
+                        "profile", username=session["user"]))   
             else:
                 # Invalid password
                 flash("Incorrect username/password")
                 return redirect(url_for("sign_in"))
             
         else:
-            #username doesn't exist
+            # username doesn't exist
             flash("Incorrect username/password")
             return redirect(url_for("sign_in"))
         
     return render_template("sign-in.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # get the session username
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 
 @app.route("/contact")
