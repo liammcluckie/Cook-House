@@ -62,6 +62,21 @@
         {% block content %}
         {% endblock %}
     </main>
+    <!-- Flash Messages -->
+    <section class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row">
+                        <div class="col">
+                        <h4>{{ message }}</h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+    <!-- End of Flash Messages -->
     <!-- Footer -->
     <footer>
         <div class="container-fluid dark-pattern-bg">
