@@ -45,6 +45,9 @@
                         <a href="{{ url_for('create_event') }}" class="nav-list-link">Create Event</a>
                     </li>
                     <li class="nav-list-item">
+                        <a href="{{ url_for('profile', username=session['user']) }}" class="nav-list-link">Profile</a>
+                    </li>
+                    <li class="nav-list-item">
                         <a href="{{ url_for('register') }}" class="nav-list-link">Register</a>
                     </li>
                     <li class="nav-list-item">
@@ -93,7 +96,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-12 footer-logo">
-                    <img src="static/images/logo-transparent.png" alt="Cook House Logo">
+                    <img src="../static/images/logo-transparent.png" alt="Cook House Logo">
                 </div>
                 <div class="col-lg-4 col-md-12 footer-social">
                     <i class="fab fa-facebook-square">
