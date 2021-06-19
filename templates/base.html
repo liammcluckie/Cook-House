@@ -70,24 +70,24 @@
                     <ul class="footer-nav">
                     <div class="col-xs-6">
                         <li class="footer-nav-item">
-                            <a href="#" class="footer-nav-link">Home</a>
+                            <a href="{{ url_for('home') }}" class="footer-nav-link">Home</a>
                         </li>
                         <li class="footer-nav-item">
                             <a href="#" class="footer-nav-link">Supper Club</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a href="#" class="footer-nav-link">Create Event</a>
+                            <a href="{{ url_for('create_event') }}" class="footer-nav-link">Create Event</a>
                         </li>
                     </div>
                     <div class="col-xs-6">
                         <li class="footer-nav-item">
-                            <a href="#" class="footer-nav-link">Register</a>
+                            <a href="{{ url_for('register') }}" class="footer-nav-link">Register</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a href="#" class="footer-nav-link">Sign In</a>
+                            <a href="{{ url_for('sign_in' )}}" class="footer-nav-link">Sign In</a>
                         </li>
                         <li class="footer-nav-item">
-                            <a href="#" class="footer-nav-link">Contact</a>
+                            <a href="{{ url_for('contact') }}" class="footer-nav-link">Contact</a>
                         </li>
                     </div>
                     </ul>
