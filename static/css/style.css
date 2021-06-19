@@ -501,6 +501,10 @@ label:focus {
     border: 1px solid var(--primary-color);
 }
 
+.form-message {
+    color: var(--primary-color-dark);
+}
+
 /* Contact Form */
 
 .contact-intro,
