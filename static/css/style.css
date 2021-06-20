@@ -61,7 +61,6 @@ a:focus,
 a:active {
     text-decoration: none;
     color: var(--accent-color-dark);
-    text-decoration: underline;
 }
 
 li {
@@ -599,6 +598,11 @@ label:focus {
 
 .footer-nav-item {
     margin-bottom: 0.75rem;
+}
+
+.footer-nav-link:hover,
+.footer-nav-link:focus {
+    text-decoration: underline;
 }
 
 .footer-social {
