@@ -41,7 +41,7 @@
                     <!-- Check if user is logged in -->
                     {% if session.user %}
                         <li class="nav-list-item">
-                            <a href="#" class="nav-list-link">Supper Club</a>
+                            <a href="{{ url_for('supper_club') }}" class="nav-list-link">Supper Club</a>
                         </li>
                         <li class="nav-list-item">
                             <a href="{{ url_for('create_event') }}" class="nav-list-link">Create Event</a>
@@ -87,7 +87,7 @@
                                     <a href="{{ url_for('profile', username=session['user']) }}" class="footer-nav-link">Profile</a>
                                 </li>
                                 <li class="footer-nav-item">
-                                    <a href="#" class="footer-nav-link">Supper Club</a>
+                                    <a href="{{ url_for('supper_club') }}" class="footer-nav-link">Supper Club</a>
                                 </li>
                                 </div>
                                 <div class="col-xs-6">
