@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <header>
+        <div class="container-fluid dark-pattern-bg">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="static/images/logo-transparent.png" alt="Cook House Logo">
+                    <h1 class="page-title">Supper Clubs</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Page intro/search -->
+    <section class="light-pattern-bg">
+        <div class="container-fluid mb-5">
+            <div class="row">
+                <div class="col-lg-4 dark-text club-hero-content">
+                    <h2 class="mb-4 mt-4">Find upcoming supper clubs below or...</h2>
+                    <a href="{{ url_for('create_event') }}" class="button--alt button uppercase">Create Event</a>
+                </div>
+                <div class="col-lg-8 club-hero">
+                    <span role="img" aria-label=""></span>
+                </div>
+            </div>
+        </div>
+        <!-- End of page intro/search -->
+        <!-- Events card -->
+        <div class="container pb-5">
+            <div class="row mb-5">
+                <div class="col-4 search-box">
+                    <button class="btn-search"><i class="fas fa-search"></i></button>
+                    <input class="input-search" type="text" placeholder="Search Location, Cuisine or Name" results>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="card-link">Card link</a>
+                          <a href="#" class="card-link">Another link</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of events card -->
+    </section>
+    
+{% endblock %}
