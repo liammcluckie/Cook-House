@@ -114,6 +114,11 @@ def create_event():
     return render_template("create-event.html")
 
 
+@app.route("/supper-club")
+def supper_club():
+    return render_template("supper-club.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
             port=int(os.environ.get("PORT")),
