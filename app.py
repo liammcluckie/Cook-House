@@ -15,7 +15,9 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
+
 mongo = PyMongo(app)
+
 
 @app.route("/")
 @app.route("/home")
@@ -25,8 +27,8 @@ def home():
 
 @app.route("/get_event")
 def get_event():
-    event = mongo.db.event.find()
-    return render_template("events.html", event=event)
+    events = mongo.db.events.find()
+    return render_template("supper-club.html", events=events)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -123,3 +125,4 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"), 
             port=int(os.environ.get("PORT")),
             debug=True) 
+    
