@@ -605,6 +605,18 @@ label:focus {
     background-size: contain;
 }
 
+@media (max-width: 960px) {
+    .club-hero {
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 480px) {
+    .club-hero {
+        height: 50vh;
+    }
+}
+
 /* Search box code from https://codepen.io/ahmadbassamemran/pen/rNjMXqg */
 /* And customised for this project */
 
@@ -615,29 +627,29 @@ label:focus {
 }
 
 .input-search {
-    height: 50px;
-    width: 50px;
+    height: 3.125rem;
+    width: 3.125rem;
     border-style: none;
-    padding: 10px;
+    padding: 0.625;
     outline: none;
     border-radius: 25px;
     transition: all .5s ease-in-out;
-    background-color: var(--primary-color);
-    padding-right: 40px;
+    background-color: var(--primary-color-dark);
+    padding-right: 2.5rem;
     color:var(--primary-color-dark);
 }
 
 .input-search::placeholder {
     color: var(--primary-color-dark);
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 100;
 }
 
 .btn-search{
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
     border-style: none;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     outline: none;
     cursor: pointer;
@@ -655,19 +667,41 @@ label:focus {
 }
 
 .btn-search:focus ~ .input-search{
-    width: 350px;
+    width: 21.875rem;
     border-radius: 0px;
     background-color: transparent;
-    border:1px solid var(--primary-color);
+    border: 1px solid var(--primary-color);
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
 
 .input-search:focus{
-    width: 350px;
+    width: 21.875rem;
     border-radius: 0px;
     background-color: transparent;
-    border-bottom:1px solid rgba(255,255,255,.5);
+    border-bottom: 1px solid rgba(255,255,255,.5);
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+@media (max-width: 360px) {
+    .btn-search:focus ~ .input-search,
+    .input-search:focus {
+        width: 18rem;
+    }
+
+    .input-search::placeholder {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 280px) {
+    .btn-search:focus ~ .input-search,
+    .input-search:focus {
+        width: 16rem;
+    }
+
+    .input-search::placeholder {
+        font-size: 0.8rem;
+    }
 }
 
 /* Footer */
@@ -815,5 +849,19 @@ label:focus {
         .column-reverse {
             display: flex;
             flex-direction: column-reverse;
+        }
+
+        /* Supper Club */
+
+        .club-hero {
+            background-attachment: scroll;
+            background-size: cover;
+            height: 50vh;
+            width: 100%;
+        }
+
+        .club-hero-content {
+            width: 100%;
+            margin-bottom: 3rem;
         }
     }
