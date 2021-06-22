@@ -39,11 +39,20 @@
                         <div class="card bg-primary-color">
                             <div class="card-body">
                                 <h4 class="card-title mb-3"><i class="fas fa-signature"></i>&nbsp;|&nbsp;<em>{{ event.event_name }}</em></h5>
-                                <h5 class="card-subtitle mb-3"><i class="fas fa-map-marker-alt"></i>&nbsp;|&nbsp;<em>{{ event.location }}</em></h6>
+                                <h5 class="card-text mb-3"><i class="fas fa-map-marker-alt"></i>&nbsp;|&nbsp;<em>{{ event.location }}</em></h6>
                                 <p class="card-text mb-3"><i class="fas fa-utensils"></i>&nbsp;|&nbsp;<em>{{ event.category_name }}</em></p>
                                 <p class="card-text mb-3"><i class="far fa-calendar-alt"></i>&nbsp;|&nbsp;<em>{{ event.date }}</em></p>
                                 <div class="menu-btn-container">
-                                    <button class="menu-btn">See Menu&nbsp;<i class="fas fa-angle-down"></i></button>
+                                    <button class="menu-btn" id="menu-button">See Menu&nbsp;<i class="fas fa-angle-down"></i></button>
+                                </div>
+                                <div class="card-menu text-center mt-4" id="event-menu">
+                                    <h4 class="card-title">Menu</h4>
+                                    <p>Starter&nbsp;|&nbsp;<em>{{ event.starter }}</em></p>
+                                    <p>Main&nbsp;|&nbsp;<em>{{ event.main }}</em></p>
+                                    <p>Dessert&nbsp;|&nbsp;<em>{{ event.dessert }}</em></p>
+                                    {% if event.extras %}
+                                        <p>Something Special&nbsp;|&nbsp;<em>{{ event.extras }}</em></p>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
