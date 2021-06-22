@@ -746,6 +746,16 @@ em {
     transform: scale(1.1);
 }
 
+/* Card Menu */
+
+.card-menu {
+    display: none;
+}
+
+.card-menu > h4 {
+    text-decoration: underline;
+}
+
 /* Footer */
 
 .footer-logo {
