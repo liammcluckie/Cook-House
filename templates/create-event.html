@@ -26,7 +26,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12 center">
-                    <form>
+                    <form method="POST" action="">
                         <legend class="text-center mt-3">Event</legend>
                         <div class="mb-1 mt-5">
                             <label for="event_name" class="form-label"></label>
@@ -37,21 +37,12 @@
                             <input type="text" class="form-control" id="location" name="location" placeholder="Location" required>
                         </div>
                         <div class="mb-4">
-                            <label for="cuisine" class="form-label"></label>
-                            <select class="form-select" aria-label="Cuisine select options" id="cuisine" name="cuisine" required>
-                                <option selected>Cuisine</option>
-                                <option value="1">Asian</option>
-                                <option value="2">English</option>
-                                <option value="3">European</option>
-                                <option value="4">Indian</option>
-                                <option value="5">Italian</option>
-                                <option value="6">French</option>
-                                <option value="7">Mexican</option>
-                                <option value="8">American</option>
-                                <option value="9">Spanish</option>
-                                <option value="10">African</option>
-                                <option value="11">Middle Eastern</option>
-                                <option value="12">Mediterranean</option>
+                            <label for="category_name" class="form-label"></label>
+                            <select class="form-select" aria-label="Cuisine select options" id="category_name" name="category_name" required>
+                                <option selected >Cuisine</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                {% endfor %}
                             </select>
                             <label for="date" class="form-label"></label>
                             <input type="date" class="form-control" id="date" name="date" required>
