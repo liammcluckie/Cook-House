@@ -113,7 +113,8 @@ def contact():
 
 @app.route("/create-event")
 def create_event():
-    return render_template("create-event.html")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("create-event.html", categories=categories)
 
 
 @app.route("/supper-club")
