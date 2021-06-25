@@ -133,6 +133,14 @@ def create_event():
     return render_template("create-event.html", categories=categories)
 
 
+@app.route("/edit-event/<event_id>", methods=["GEt", "POST"])
+def edit_event(event_id):
+    event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit-event.html", event=event, categories=categories)
+
+
 @app.route("/supper-club")
 def supper_club():
     return render_template("supper-club.html")
