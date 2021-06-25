@@ -111,8 +111,24 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route("/create-event")
+@app.route("/create-event", methods=["GET", "POST"])
 def create_event():
+    if request.method == "POST":
+        event = {
+            "event_name": request.form.get("event_name"),
+            "location": request.form.get("location"),
+            "category_name": request.form.get("category_name"),
+            "date": request.form.get("date"),
+            "starter": request.form.get("starter"),
+            "main": request.form.get("main"),
+            "dessert": request.form.get("dessert"),
+            "extras": request.form.get("extras"),
+            "created_by": session["user"]
+        }
+        mongo.db.events.insert_one(event)
+        flash("Supper Club Successfully Added")
+        return redirect(url_for("home"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("create-event.html", categories=categories)
 
