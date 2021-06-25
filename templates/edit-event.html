@@ -45,41 +45,48 @@
                         <legend class="text-center mt-3">Event</legend>
                         <div class="mb-1 mt-5">
                             <label for="event_name" class="form-label"></label>
-                            <input type="text" class="form-control" id="event_name" name="event_name" placeholder="Event Name" required>
+                            <input type="text" value="{{ event.event_name }}" class="form-control" id="event_name" name="event_name" placeholder="Event Name" required>
                         </div>      
                         <div class="mb-1">
                             <label for="location" class="form-label"></label>
-                            <input type="text" class="form-control" id="location" name="location" placeholder="Location" required>
+                            <input type="text" value="{{ event.location }}" class="form-control" id="location" name="location" placeholder="Location" required>
                         </div>
                         <div class="mb-4">
                             <label for="category_name" class="form-label"></label>
                             <select class="form-select" aria-label="Cuisine select options" id="category_name" name="category_name" required>
-                                <option selected >Cuisine</option>
+                                <option>Cuisine</option>
                                 {% for category in categories %}
-                                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                    {% if category.category_name == event.category_name %}
+                                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                                    {% else %}
+                                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                                    {% endif %}
                                 {% endfor %}
                             </select>
                             <label for="date" class="form-label"></label>
-                            <input type="date" class="form-control" id="date" name="date" required>
+                            <input type="date" value="{{ event.date }}" class="form-control" id="date" name="date" required>
                         </div>  
                         <div class="mb-1">
                             <h3 class="text-center event-form-menu-title">Menu</h3>
                             <label for="starter" class="form-label"></label>
-                            <input type="text" class="form-control" id="starter" name="starter" placeholder="Starter">
+                            <input type="text" value="{{ event.starter }}" class="form-control" id="starter" name="starter" placeholder="Starter">
                         </div>
                         <div class="mb-1">
                             <label for="main" class="form-label"></label>
-                            <input type="text" class="form-control" id="main" placeholder="Main" name="main" required>
+                            <input type="text" value="{{ event.main }}" class="form-control" id="main" placeholder="Main" name="main" required>
                         </div>
                         <div class="mb-4">
                             <label for="dessert" class="form-label"></label>
-                            <input type="text" class="form-control" id="dessert" placeholder="Dessert" name="dessert">
+                            <input type="text" value="{{ event.dessert }}" class="form-control" id="dessert" placeholder="Dessert" name="dessert">
                         </div>
                         <div class="mb-4 text-center event-message">
                             <label for="extras" class="form-label event-message-title">Extras</label>
-                            <textarea type="text" class="form-control" id="extras" name="extras" placeholder="Let your guests know about those extra little details..." rows="5"></textarea>
+                            <textarea type="text" class="form-control" id="extras" name="extras" placeholder="Let your guests know about those extra little details..." rows="5">
+                                {{- event.extras -}}
+                            </textarea>
                         </div>
                         <div class="mb-4 text-center">
+                            <a href="{{ url_for('home') }}" class="button button--alt">Cancel</a>
                             <button type="submit" class="button button--alt">Update Event</button>
                         </div>
                     </form>
