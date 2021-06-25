@@ -14,6 +14,21 @@
     <!-- Create Event Section -->
     <section>
         <div class="container-fluid light-pattern-bg align-items-center">
+            <!-- Flash Messages -->
+            <div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="row">
+                                <div class="col text-center">
+                                <h3 class="mt-5 form-message"><em>{{ message }}</em></h3>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <!-- End of Flash Messages -->
             <div class="row">
                 <div class="col-lg-8 text-center center mt-5 event-intro">
                     <h2>Supper Club</h2>
@@ -26,7 +41,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12 center">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ url_for('create_event') }}">
                         <legend class="text-center mt-3">Event</legend>
                         <div class="mb-1 mt-5">
                             <label for="event_name" class="form-label"></label>
