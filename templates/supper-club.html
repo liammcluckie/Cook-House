@@ -43,7 +43,9 @@
                                 <p class="card-text mb-3"><i class="fas fa-utensils"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.category_name }}</em></p>
                                 <p class="card-text mb-3"><i class="far fa-calendar-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.date }}</em></p>
                                 <p class="card-text mb-3"><i class="fas fa-signature"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.created_by }}</em></p>
-                                <a href="{{ url_for('edit_event', event_id=event._id) }}" class="mb-3">Edit</a>
+                                {% if session.user|lower == event.created_by|lower %}
+                                    <a href="{{ url_for('edit_event', event_id=event._id) }}" class="mb-3 underline">Edit</a>
+                                {% endif %}
                                 <div class="menu-btn-container">
                                     <button class="menu-btn" id="menu-button">See Menu&nbsp;<i class="fas fa-angle-down"></i></button>
                                 </div>
