@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <img src="../static/images/logo-transparent.png" alt="Cook House Logo">
-                    <h1 class="page-title">Edit Event</h1>
+                    <h1 class="page-title">Update Event</h1>
                 </div>
             </div>
         </div>
@@ -31,18 +31,20 @@
             <!-- End of Flash Messages -->
             <div class="row">
                 <div class="col-lg-8 text-center center mt-5 event-intro">
-                    <h2>Supper Club</h2>
-                    <p>
-                        This is your chance to really wow your future guests. Please fill in all the 
-                        fields below with as much detail as possible. Remember this is the first interaction 
-                        your guests will have with you, so make it count!
-                    </p>
+                    <h2 class="edit-event-title">Update Supper Club</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12 center">
                     <form method="POST" action="{{ url_for('edit_event', event_id=event._id) }}">
-                        <legend class="text-center mt-3">Event</legend>
+                        <a href="{{ url_for('home') }}">
+                            <div class="cancel-container">
+                                <div class="leftright"></div>
+                                <div class="rightleft"></div>
+                                <label class="cancel-label">Cancel</label>
+                            </div>
+                        </a>
+                        <legend class="text-center">Update Event</legend>
                         <div class="mb-1 mt-5">
                             <label for="event_name" class="form-label"></label>
                             <input type="text" value="{{ event.event_name }}" class="form-control" id="event_name" name="event_name" placeholder="Event Name" required>
@@ -86,7 +88,6 @@
                             </textarea>
                         </div>
                         <div class="mb-4 text-center">
-                            <a href="{{ url_for('home') }}" class="button button--alt">Cancel</a>
                             <button type="submit" class="button button--alt">Update Event</button>
                         </div>
                     </form>
