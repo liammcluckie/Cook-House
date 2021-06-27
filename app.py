@@ -127,7 +127,7 @@ def create_event():
         }
         mongo.db.events.insert_one(event)
         flash("Supper Club Successfully Added")
-        return redirect(url_for("home"))
+        return redirect(url_for("get_event"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("create-event.html", categories=categories)
@@ -149,10 +149,18 @@ def edit_event(event_id):
         }
         mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
         flash("Supper Club Successfully Updated")
+        return redirect(url_for("get_event"))
 
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit-event.html", event=event, categories=categories)
+
+
+@app.route("/delete-event/<event_id>")
+def delete_event(event_id):
+    mongo.db.events.remove({"_id": ObjectId(event_id)})
+    flash("Supper Club Successfully Deleted")
+    return redirect(url_for("get_event"))
 
 
 @app.route("/supper-club")
