@@ -25,6 +25,21 @@
             </div>
         </div>
         <!-- End of page intro/search -->
+        <!-- Flash Messages -->
+        <div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="row">
+                            <div class="col text-center">
+                            <h3 class="mt-5 form-message"><em>{{ message }}</em></h3>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <!-- End of Flash Messages -->
         <!-- Events card -->
         <div class="container pb-5">
             <div class="row mb-5">
@@ -44,7 +59,8 @@
                                 <p class="card-text mb-3"><i class="far fa-calendar-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.date }}</em></p>
                                 <p class="card-text mb-3"><i class="fas fa-signature"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.created_by }}</em></p>
                                 {% if session.user|lower == event.created_by|lower %}
-                                    <a href="{{ url_for('edit_event', event_id=event._id) }}" class="mb-3 underline">Edit</a>
+                                    <a href="{{ url_for('edit_event', event_id=event._id) }}" class="mb-3">Edit</a>
+                                    <a href="{{ url_for('delete_event', event_id=event._id) }}" class="mb-3">Delete</a>
                                 {% endif %}
                                 <div class="menu-btn-container">
                                     <button class="menu-btn" id="menu-button">See Menu&nbsp;<i class="fas fa-angle-down"></i></button>
