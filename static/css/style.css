@@ -27,6 +27,7 @@ ol, ul {
     --secondary-color: #f1f1e6;
     --accent-color: #ffc145;
     --accent-color-dark: #cc9a37;
+    --cancel-color: #F25C66;
     --font-title: "Lora", serif;
     --font-body: "Open Sans", sans-serif;
 }
@@ -584,6 +585,10 @@ label:focus {
     padding-bottom: 1rem;
 }
 
+.edit-event-title {
+    padding-bottom: 0!important;
+}
+
 .event-form-menu-title {
     font-size: 1.5rem;
     color: var(--primary-color-dark);
@@ -762,6 +767,71 @@ label:focus {
 
 .card-menu > h4 {
     text-decoration: underline;
+}
+
+/* Edit Event */
+
+/* Code for cancel animation from https://codepen.io/rsbear/pen/ZpXJVp */
+/* And customised for this project */
+
+.cancel-container {
+    position: relative;
+    margin-left: auto;
+    width: 3.125rem;
+    height: 3.125rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.leftright {
+    height: 0.25rem;
+    width: 2.25rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1.5rem;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all .3s ease-in;
+}
+
+.rightleft {
+    height: 0.25rem;
+    width: 2.25rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1.5rem;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all .3s ease-in;
+}
+
+.cancel-label {
+    color: var(--primary-color-dark);
+    transition: all .3s ease-in;
+    opacity: 0;
+    margin: 2.75rem 0 0 0;
+    position: absolute;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-family: var(--font-body);
+}
+
+.cancel-container:hover .leftright {
+    transform: rotate(-45deg);
+    background-color: var(--cancel-color);
+}
+
+.cancel-container:hover .rightleft {
+    transform: rotate(45deg);
+    background-color: var(--cancel-color);
+}
+
+.cancel-container:hover .cancel-label {
+    opacity: 1;
 }
 
 /* Footer */
