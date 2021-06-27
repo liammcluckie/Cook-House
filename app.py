@@ -133,10 +133,24 @@ def create_event():
     return render_template("create-event.html", categories=categories)
 
 
-@app.route("/edit-event/<event_id>", methods=["GEt", "POST"])
+@app.route("/edit-event/<event_id>", methods=["GET", "POST"])
 def edit_event(event_id):
-    event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
+    if request.method == "POST":
+        submit = {
+            "event_name": request.form.get("event_name"),
+            "location": request.form.get("location"),
+            "category_name": request.form.get("category_name"),
+            "date": request.form.get("date"),
+            "starter": request.form.get("starter"),
+            "main": request.form.get("main"),
+            "dessert": request.form.get("dessert"),
+            "extras": request.form.get("extras"),
+            "created_by": session["user"]
+        }
+        mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
+        flash("Supper Club Successfully Updated")
 
+    event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit-event.html", event=event, categories=categories)
 
