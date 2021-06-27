@@ -80,6 +80,15 @@ li {
     display: none;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
+.underline:hover,
+.underling:active {
+    text-decoration: underline;
+}
+
 .bg-primary-color {
     background-color: var(--primary-color);
 }
@@ -592,6 +601,7 @@ label:focus {
 .event-form-menu-title {
     font-size: 1.5rem;
     color: var(--primary-color-dark);
+    font-weight: normal;
 }
 
 .event-message-title {
