@@ -629,6 +629,61 @@ label:focus {
     background-size: contain;
 }
 
+.delete-btn {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--accent-color);
+    font-weight: 100;
+    font-size: 1.25rem;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+    opacity: .8;
+}
+
+.modal-title {
+    letter-spacing: normal;
+    font-weight: bold;
+}
+
+.modal-content {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.modal-body {
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+.modal-btn {
+    border-radius: 8px;
+    padding: .5rem .75rem;
+    color: var(--secondary-color);
+    font-weight: 400;
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+    opacity: .8;
+    color: var(--secondary-color)!important;
+}
+
+.modal-btn--delete {
+    border: 1px solid var(--cancel-color);
+    background-color: var(--cancel-color);
+    font-size: 1.25rem;
+}
+
+.modal-btn--cancel {
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
 @media (max-width: 960px) {
     .club-hero {
         background-attachment: scroll;
