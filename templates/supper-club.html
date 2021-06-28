@@ -60,7 +60,29 @@
                                 <p class="card-text mb-3"><i class="fas fa-signature"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.created_by }}</em></p>
                                 {% if session.user|lower == event.created_by|lower %}
                                     <a href="{{ url_for('edit_event', event_id=event._id) }}" class="mb-3">Edit</a>
-                                    <a href="{{ url_for('delete_event', event_id=event._id) }}" class="mb-3">Delete</a>
+                                    <!-- Confirm Delete Modal -->
+                                    <!-- Code taken from https://getbootstrap.com/ and customised for this project -->
+                                    <button type="button" class="delete-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        Delete
+                                    </button>
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title uppercase" id="staticBackdropLabel">Delete Event</h4>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you sure you want to delete this event?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="modal-btn modal-btn--cancel" data-bs-dismiss="modal">Cancel</button>
+                                                    <a href="{{ url_for('delete_event', event_id=event._id) }}" class="modal-btn modal-btn--delete">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End of Delete Modal -->
                                 {% endif %}
                                 <div class="menu-btn-container">
                                     <button class="menu-btn" id="menu-button">See Menu&nbsp;<i class="fas fa-angle-down"></i></button>
