@@ -629,15 +629,6 @@ label:focus {
     background-size: contain;
 }
 
-.delete-btn {
-    border: none;
-    outline: none;
-    background: transparent;
-    color: var(--accent-color);
-    font-weight: 100;
-    font-size: 1.25rem;
-}
-
 .delete-btn:hover,
 .delete-btn:focus {
     opacity: .8;
@@ -794,6 +785,8 @@ label:focus {
 
 .card-body {
     padding-right: 1.75rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-body > h5 {
@@ -805,10 +798,6 @@ label:focus {
     color: var(--accent-color);
 }
 
-.menu-btn-container {
-    text-align: center;
-}
-
 .menu-btn {
     border: 1px solid var(--accent-color-dark);
     border-radius: 32px;
@@ -816,7 +805,8 @@ label:focus {
     padding: 0.5rem 2.25rem;
     color: #fff;
     font-family: var(--font-title);
-    transition: all 0.5s ease-in-out
+    transition: all 0.5s ease-in-out;
+    margin: 0 auto;
 }
 
 .menu-btn:hover,
@@ -828,6 +818,10 @@ label:focus {
 
 .card-menu {
     display: none;
+}
+
+.show {
+    display: block;
 }
 
 .card-menu > h4 {
