@@ -51,7 +51,7 @@
             <div class="row">
                 {% for event in events %}
                     <div class="col-lg-4 col-md-6">
-                        <div class="card bg-primary-color">
+                        <div class="card bg-primary-color mb-4">
                             <div class="card-body">
                                 <h4 class="card-title mb-3 text-center"><em class="event-em">{{ event.event_name }}</em></h5>
                                 <h5 class="card-text mb-3"><i class="fas fa-map-marker-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.location }}</em></h6>
@@ -59,12 +59,14 @@
                                 <p class="card-text mb-3"><i class="far fa-calendar-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.date }}</em></p>
                                 <p class="card-text mb-3"><i class="fas fa-signature"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.created_by }}</em></p>
                                 {% if session.user|lower == event.created_by|lower %}
-                                    <a href="{{ url_for('edit_event', event_id=event._id) }}" class="mb-3">Edit</a>
-                                    <!-- Confirm Delete Modal -->
-                                    <!-- Code taken from https://getbootstrap.com/ and customised for this project -->
-                                    <button type="button" class="delete-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        Delete
-                                    </button>
+                                    <div class="mb-3">
+                                        <a href="{{ url_for('edit_event', event_id=event._id) }}" class="mb-3">Edit</a>
+                                        <!-- Confirm Delete Modal -->
+                                        <!-- Code taken from https://getbootstrap.com/ and customised for this project -->
+                                        <a href="#" class="delete-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            Delete
+                                        </a>
+                                    </div>
                                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -84,9 +86,7 @@
                                     </div>
                                     <!-- End of Delete Modal -->
                                 {% endif %}
-                                <div class="menu-btn-container">
-                                    <button class="menu-btn" id="menu-button">See Menu&nbsp;<i class="fas fa-angle-down"></i></button>
-                                </div>
+                                <button class="menu-btn">See Menu&nbsp;<i class="fas fa-angle-down"></i></button>
                                 <div class="card-menu text-center mt-4" id="event-menu">
                                     <h4 class="card-title">Menu</h4>
                                     <p>Starter&nbsp;|&nbsp;<em class="event-em">{{ event.starter }}</em></p>
