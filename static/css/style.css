@@ -130,6 +130,10 @@ li {
     text-align: center;
 }
 
+.rotate {
+    transform: rotate(180deg);
+}
+
 .button {
     border-radius: 2px;
     border: 1px solid var(--accent-color);
