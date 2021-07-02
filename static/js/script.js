@@ -12,7 +12,7 @@ document.querySelectorAll('.menu-btn').forEach(item => {
     item.addEventListener('click', () => {
         const caret = item.querySelector('.caret');
         // Check current display of elements next sibling
-        if (item.nextElementSibling.style.display === "none") {
+        if (item.nextElementSibling.style.display === "" || item.nextElementSibling.style.display === "none") {
             caret.classList.add('rotate');
             // Change display style if true
             item.nextElementSibling.style.display = "block";
