@@ -788,6 +788,7 @@ label:focus {
 }
 
 .card-body {
+    padding-left: 1.75rem;
     padding-right: 1.75rem;
     display: flex;
     flex-direction: column;
@@ -802,7 +803,7 @@ label:focus {
     color: var(--accent-color);
 }
 
-.menu-btn {
+.event-card-btn{
     border: 1px solid var(--accent-color-dark);
     border-radius: 32px;
     background-color: var(--accent-color-dark);
@@ -813,10 +814,36 @@ label:focus {
     margin: 0 auto;
 }
 
-.menu-btn:hover,
-.menu-btn:focus {
+.event-card-btn:hover,
+.event-card-btn:focus {
     transform: scale(1.1);
 }
+
+/* Event Card Sign up */
+
+.event-join-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.25rem;
+}
+
+.card-form-title {
+    color: var(--accent-color);
+    margin-bottom: 0;
+}
+
+.card-form-subtitle {
+    font-size: 0.75rem;
+    text-align: center;
+    color: #CDCDCD;
+}
+
+.card-form-text {
+    font-size: 1rem;
+    text-align: center;
+}
+
+
 
 /* Card Menu */
 
