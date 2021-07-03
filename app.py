@@ -123,6 +123,7 @@ def create_event():
             "main": request.form.get("main"),
             "dessert": request.form.get("dessert"),
             "extras": request.form.get("extras"),
+            "counter": int(request.form.get("counter")),
             "created_by": session["user"]
         }
         mongo.db.events.insert_one(event)
@@ -131,6 +132,20 @@ def create_event():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("create-event.html", categories=categories)
+
+
+@app.route("/update-counter/<event_id>", methods=["GET", "POST"])
+def update_counter(event_id):
+    if request.method == "POST":
+        update = {"counter": int(request.form.get("counter"))}
+
+        mongo.db.events.update({"_id": ObjectId(event_id)},
+            {"$set": update})
+        return redirect(url_for("get_event"))
+
+    event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
+    return render_template("supper-club.html", event=event)
+
 
 
 @app.route("/edit-event/<event_id>", methods=["GET", "POST"])
