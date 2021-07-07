@@ -22,3 +22,19 @@ document.querySelectorAll('.event-card-btn').forEach(item => {
         }
     });
 });
+
+/**
+ * Remove counter input field at value 20
+ * Hide unnecessary content 
+ * Change innerHTML of title
+ */
+
+counterValue = document.querySelectorAll('.counter').forEach(item => {
+    value = item.value;
+    if (value === "20") {
+        item.previousElementSibling.innerHTML = "Supper Club Full";
+        item.style.display = "none";
+        item.nextElementSibling.style.display = "none";
+    } 
+})
+
