@@ -679,6 +679,12 @@ label:focus {
     color: var(--secondary-color);
 }
 
+.modal-btn--join {
+    border: 1px solid var(--accent-color-dark);
+    background-color: var(--accent-color-dark);
+    color: var(--secondary-color);
+}
+
 @media (max-width: 960px) {
     .club-hero {
         background-attachment: scroll;
@@ -803,7 +809,9 @@ label:focus {
     color: var(--accent-color);
 }
 
-.event-card-btn{
+/* Button with event listener */
+
+.event-card-btn-js {
     border: 1px solid var(--accent-color-dark);
     border-radius: 32px;
     background-color: var(--accent-color-dark);
@@ -812,11 +820,33 @@ label:focus {
     font-family: var(--font-title);
     transition: all 0.5s ease-in-out;
     margin: 0 auto;
+    display: inline-block;
+}
+
+.event-card-btn-js:hover,
+.event-card-btn-js:focus {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* Button without event listener */
+
+.event-card-btn {
+    border: 1px solid var(--accent-color-dark);
+    border-radius: 32px;
+    background-color: var(--accent-color-dark);
+    padding: 0.5rem 2.25rem;
+    color: #fff;
+    font-family: var(--font-title);
+    transition: all 0.5s ease-in-out;
+    margin: 0 auto;
+    display: inline-block;
 }
 
 .event-card-btn:hover,
 .event-card-btn:focus {
     transform: scale(1.1);
+    color: #fff;
 }
 
 /* Event Card Sign up */
@@ -843,16 +873,31 @@ label:focus {
     text-align: center;
 }
 
+/* Event Card Sign up Modal */
 
+.join-event-confirm {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .join-event-email::placeholder {
+        color: #fff;
+    }
+
+    .join-event-confirm {
+        display: block;
+        text-align: left;
+    }
+
+    .join-event-details {
+        text-align: left;
+    }
+}
 
 /* Card Menu */
 
 .card-menu {
     display: none;
-}
-
-.show {
-    display: block;
 }
 
 .card-menu > h4 {
