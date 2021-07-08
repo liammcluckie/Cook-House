@@ -56,13 +56,40 @@
                                 <!-- Join Event section -->
                                 <form method="POST" class="event-join-form" action="{{ url_for('update_counter', event_id=event._id) }}">
                                     <h4 class="card-form-title text-center mt-3 mb-3">Join Club</h4>
-                                    <input type="number" name="counter" class="form-control counter" max="20" value="{{ event.counter }}"></input>
+                                    <input type="number" name="counter" class="form-control counter" max="20" value="{{ event.counter }}">
                                     <div class="text-center">
                                         <label for="counter" class="form-label"></label>
                                         <p class="card-form-subtitle"><em>* Guests currently attending</em></p>
-                                        <p class="card-form-text">Please add the number of guests that would like to attend this club</p>
-                                        <button type="submit" class="event-card-btn mb-3">Join</button>
+                                        <p class="card-form-text">Please add to the total the number of guests that would like to attend this club</p>
+                                        <!-- Club registration modal -->
+                                        <!-- Code taken from https://getbootstrap.com/ and customised for this project -->
+                                        <a href="#" class="event-card-btn mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                            Join
+                                        </a>
                                     </div>
+
+                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="staticBackdropLabel">Join Supper Club</h4>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <label for="join_event_email"></label>
+                                                        <input type="email" name="join_event_email" class="join-event-email form-control mb-2" required placeholder="Please enter your email address to confirm registration">
+                                                        <p class="join-event-confirm">Please enter your email address to confirm registration</p>
+                                                        <p class="join-event-details">The host will contact you with more details soon</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="modal-btn modal-btn--cancel" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="modal-btn--join modal-btn">Confirm</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <button type="submit" class="event-card-btn mb-3">Join</button> -->
                                 </form>
                                 <!-- End of Join Event Section -->
                                 <h4 class="card-title mb-3 text-center"><em class="event-em">{{ event.event_name }}</em></h5>
@@ -98,7 +125,7 @@
                                     </div>
                                     <!-- End of Delete Modal -->
                                 {% endif %}
-                                <button class="event-card-btn">See Menu&nbsp;<i class="caret fas fa-angle-down"></i></button>
+                                <button class="event-card-btn-js">See Menu&nbsp;<i class="caret fas fa-angle-down"></i></button>
                                 <div class="card-menu text-center mt-4" id="event-menu">
                                     <h4 class="card-title">Menu</h4>
                                     <p>Starter&nbsp;|&nbsp;<em class="event-em">{{ event.starter }}</em></p>
