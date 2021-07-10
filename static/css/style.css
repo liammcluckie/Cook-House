@@ -818,9 +818,9 @@ input[type="number"] {
     color: var(--accent-color);
 }
 
-/* Button with event listener */
+/* Event Buttons */
 
-.event-card-btn-js {
+.event-menu-btn {
     border: 1px solid var(--accent-color-dark);
     border-radius: 32px;
     background-color: var(--accent-color-dark);
@@ -832,15 +832,30 @@ input[type="number"] {
     display: inline-block;
 }
 
-.event-card-btn-js:hover,
-.event-card-btn-js:focus {
+.event-menu-btn:hover,
+.event-menu-btn:focus {
     transform: scale(1.1);
     color: #fff;
 }
 
-/* Button without event listener */
+.event-join-btn {
+    border: 1px solid var(--accent-color-dark);
+    border-radius: 32px;
+    background-color: var(--accent-color-dark);
+    padding: 0.5rem 2.25rem;
+    color: #fff;
+    font-family: var(--font-title);
+    transition: all 0.5s ease-in-out;
+    margin: 0 auto;
+    display: none;
+}
 
-.event-join-btn,
+.event-join-btn:hover,
+.event-join-btn:focus {
+    transform: scale(1.1);
+    color: #fff;
+}
+
 .event-confirm-btn {
     border: 1px solid var(--accent-color-dark);
     border-radius: 32px;
@@ -853,10 +868,8 @@ input[type="number"] {
     display: inline-block;
 }
 
-.event-card-btn:hover,
 .event-confirm-btn:hover,
-.event-confirm-btn:focus,
-.event-card-btn:focus {
+.event-confirm-btn:focus {
     transform: scale(1.1);
     color: #fff;
 }
@@ -885,13 +898,16 @@ input[type="number"] {
     text-align: center;
 }
 
+.counter-error {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
 /* Event Card Confirm */
 
 .event-confirm-container {
-    display: none;
-}
-
-.join-event-confirm {
     display: none;
 }
 
