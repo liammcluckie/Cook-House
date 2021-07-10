@@ -56,11 +56,11 @@
                                 <!-- Join Event section -->
                                 <form method="POST" class="event-join-form" action="{{ url_for('update_counter', event_id=event._id) }}">
                                     <h4 class="card-form-title text-center mt-3 mb-3">Join Club</h4>
-                                    <input type="number" name="counter" class="form-control counter" max="20" value="{{ event.counter }}">
+                                    <input type="number" name="counter" class="form-control counter" min="{{ event.counter }}" max="20" value="{{ event.counter }}">
                                     <div class="text-center">
                                         <label for="counter" class="form-label"></label>
-                                        <p class="card-form-subtitle"><em>* Guests currently attending</em></p>
-                                        <p class="card-form-text">Please add to the total the number of guests that would like to attend this club</p>
+                                        <p class="card-form-subtitle"><em>* Guests currently attending<br>Max guests 20</em></p>
+                                        <p class="card-form-text">Please add to the current total the number of guests that would like to attend this club</p>
                                         <button type="button" class="event-join-btn mb-3">Join</button>
                                         <div class="event-confirm-container">
                                             <label for="join_event_email"></label>
@@ -104,7 +104,7 @@
                                     </div>
                                     <!-- End of Delete Modal -->
                                 {% endif %}
-                                <button class="event-card-btn-js">See Menu&nbsp;<i class="caret fas fa-angle-down"></i></button>
+                                <button class="event-menu-btn">See Menu&nbsp;<i class="caret fas fa-angle-down"></i></button>
                                 <div class="card-menu text-center mt-4" id="event-menu">
                                     <h4 class="card-title">Menu</h4>
                                     <p>Starter&nbsp;|&nbsp;<em class="event-em">{{ event.starter }}</em></p>
