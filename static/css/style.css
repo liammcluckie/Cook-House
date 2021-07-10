@@ -527,6 +527,15 @@ label:focus {
     color: var(--primary-color-dark);
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 /* Contact Form */
 
 .contact-intro,
@@ -831,7 +840,8 @@ label:focus {
 
 /* Button without event listener */
 
-.event-card-btn {
+.event-join-btn,
+.event-confirm-btn {
     border: 1px solid var(--accent-color-dark);
     border-radius: 32px;
     background-color: var(--accent-color-dark);
@@ -844,6 +854,8 @@ label:focus {
 }
 
 .event-card-btn:hover,
+.event-confirm-btn:hover,
+.event-confirm-btn:focus,
 .event-card-btn:focus {
     transform: scale(1.1);
     color: #fff;
@@ -873,25 +885,14 @@ label:focus {
     text-align: center;
 }
 
-/* Event Card Sign up Modal */
+/* Event Card Confirm */
 
-.join-event-confirm {
+.event-confirm-container {
     display: none;
 }
 
-@media (max-width: 480px) {
-    .join-event-email::placeholder {
-        color: #fff;
-    }
-
-    .join-event-confirm {
-        display: block;
-        text-align: left;
-    }
-
-    .join-event-details {
-        text-align: left;
-    }
+.join-event-confirm {
+    display: none;
 }
 
 /* Card Menu */
