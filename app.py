@@ -141,6 +141,7 @@ def update_counter(event_id):
 
         mongo.db.events.update({"_id": ObjectId(event_id)},
             {"$set": update})
+        flash("Supper Club Successfully Joined!")
         return redirect(url_for("get_event"))
 
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
