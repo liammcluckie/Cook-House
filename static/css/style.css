@@ -860,7 +860,7 @@ input[type="number"] {
     border: 1px solid var(--accent-color-dark);
     border-radius: 32px;
     background-color: var(--accent-color-dark);
-    padding: 0.5rem 2.25rem;
+    padding: 0.5rem 1rem;
     color: #fff;
     font-family: var(--font-title);
     transition: all 0.5s ease-in-out;
@@ -870,6 +870,24 @@ input[type="number"] {
 
 .event-confirm-btn:hover,
 .event-confirm-btn:focus {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+.event-cancel-btn {
+    border: 1px solid var(--cancel-color);
+    border-radius: 32px;
+    background-color: var(--cancel-color);
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-family: var(--font-title);
+    transition: all 0.5s ease-in-out;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.event-cancel-btn:hover,
+.event-cancel-btn:focus {
     transform: scale(1.1);
     color: #fff;
 }
