@@ -38,6 +38,38 @@ counterValue = document.querySelectorAll('.counter').forEach(item => {
     } 
 })
 
+/**
+ * Check that user input is greater than current counter value
+ * Only display inserted html once
+ * Logic to check user input against min value taken from current value in DB
+ * Insert HTML into DOM
+ * When Correct value entered display button 
+ */
+
+ checkCounterValue = document.querySelectorAll('.counter').forEach(item => {
+    item.addEventListener('blur', () => {
+        // Remove error message if one is present
+        item.parentElement.querySelectorAll('.counter-error').forEach(counterError => counterError.remove())
+        // Store current value to check against min value which is also current value
+        const value = Number(item.value);
+        const min = Number(item.min);
+        let counterError = document.createElement('p');
+        counterError.setAttribute('class', 'counter-error');
+        if (value <= min) {
+            // Create html error message to instert into DOM
+            counterError.innerHTML = "Guests entered has not been added to the current total";
+            item.insertAdjacentElement('afterend', counterError);
+        } else if (value > 20) {
+            counterError.innerHTML = "Guests entered exceeds maximum amount";
+            item.insertAdjacentElement('afterend', counterError);
+        } else {
+            // When input truthy display button
+            const joinForm = item.parentElement;
+            joinForm.querySelectorAll('.event-join-btn').forEach(joinButton => joinButton.style.display = "block");
+        }
+    });
+});
+
 // Display event confirm with email section
 
 joinClub = document.querySelectorAll('.event-join-btn').forEach(item => {
@@ -47,31 +79,28 @@ joinClub = document.querySelectorAll('.event-join-btn').forEach(item => {
 });
 
 /**
- * Check that user input is greater than current counter value
- * Only display inserted html once
- * Logic to check user input against min value taken from current value in DB
- * Insert HTML into DOM
- * When Correct value entered display button 
+ * Join event cancel button functionality
+ * Traverse up the DOM to select form top level parent
+ * Select counter number input
+ * Rest input with current value in DB
  */
 
-checkCounterValue = document.querySelectorAll('.counter').forEach(item => {
-    item.addEventListener('blur', () => {
-        // Remove error message if one is present
-        item.parentElement.querySelectorAll('.counter-error').forEach(counterError => counterError.remove())
-        // Store current value to check against min value which is also current value
-        const value = Number(item.value);
-        const min = Number(item.min);
-        if (value <= min) {
-            // Create html error message to instert into DOM
-            let counterError = document.createElement('p');
-            counterError.setAttribute('class', 'counter-error');
-            counterError.innerHTML = "Guests entered has not been added to the current total";
-            item.insertAdjacentElement('afterend', counterError);
-        } else {
-            // When input truthy display button
-            const joinForm = item.parentElement;
-            joinForm.querySelectorAll('.event-join-btn').forEach(joinButton => joinButton.style.display = "block");
-        }
+cancelJoinClub = document.querySelectorAll('.event-cancel-btn').forEach(item => {
+    item.addEventListener('click', () => {
+        // Traverse up the DOM to select form element
+        const parentFirst = item.parentElement;
+        const parentSecond = parentFirst.parentElement;
+        const parentForm = parentSecond.parentElement;
+        // Select counter input
+        parentForm.querySelectorAll('.counter').forEach(counter => {
+            // Store and reset counter value
+            const counterResetValue = Number(counter.min);
+            counter.value = counterResetValue;
+        })
+        // Set confirm join event display
+        item.parentElement.style.display = "none";
     });
 });
+
+
 
