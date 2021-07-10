@@ -38,3 +38,13 @@ counterValue = document.querySelectorAll('.counter').forEach(item => {
     } 
 })
 
+// Display event confirm with email section
+
+joinClub = document.querySelectorAll('.event-join-btn').forEach(item => {
+    item.addEventListener('click', () => {
+        item.nextElementSibling.style.display = "block"
+    });
+});
+
+
+
