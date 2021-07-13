@@ -1008,6 +1008,24 @@ input[type="number"] {
     opacity: 1;
 }
 
+/* Profile */
+
+.profile-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    border-radius: 50%;
+}
+
+@media (max-width: 480px) {
+    .profile-img {
+        width: 50%;
+    }
+}
+
 /* Footer */
 
 .footer-logo {
