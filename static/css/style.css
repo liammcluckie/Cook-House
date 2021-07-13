@@ -716,8 +716,8 @@ input[type="number"] {
 }
 
 .input-search {
-    height: 5.125rem;
-    width: 5.125rem;
+    height: 3.125rem;
+    width: 3.125rem;
     border-style: none;
     padding: 0.625;
     outline: none;
@@ -735,8 +735,8 @@ input[type="number"] {
 }
 
 .btn-search{
-    width: 5.125rem;
-    height: 5.125rem;
+    width: 3.125rem;
+    height: 3.125rem;
     border-style: none;
     font-size: 1.25rem;
     font-weight: bold;
@@ -771,20 +771,22 @@ input[type="number"] {
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
 }
 
-@media (max-width: 360px) {
-    .btn-search:focus ~ .input-search,
-    .input-search:focus {
+@media (max-width: 480px) {
+    .btn-search ~ .input-search {
         width: 18rem;
+        border-radius: 0px;
+        background-color: transparent;
+        border: 1px solid var(--primary-color);
+        transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
     }
-
     .input-search::placeholder {
         font-size: 0.9rem;
     }
 }
 
 @media (max-width: 280px) {
-    .btn-search:focus ~ .input-search,
-    .input-search:focus {
+    .btn-search ~ .input-search,
+    .input-search {
         width: 16rem;
     }
 
