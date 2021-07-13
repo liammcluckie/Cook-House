@@ -7,7 +7,7 @@ document.querySelector("#copyright-year").innerText = new Date().getFullYear();
  * Rotate caret icon
  */
 
-document.querySelectorAll('.event-card-btn-js').forEach(item => {
+document.querySelectorAll('.event-menu-btn').forEach(item => {
     // Loop through all buttons and add click event listeners
     item.addEventListener('click', () => {
         const caret = item.querySelector('.caret');
