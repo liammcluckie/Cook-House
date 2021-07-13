@@ -716,12 +716,12 @@ input[type="number"] {
 }
 
 .input-search {
-    height: 3.125rem;
-    width: 3.125rem;
+    height: 5.125rem;
+    width: 5.125rem;
     border-style: none;
     padding: 0.625;
     outline: none;
-    border-radius: 25px;
+    border-radius: 50%;
     transition: all .5s ease-in-out;
     background-color: var(--primary-color-dark);
     padding-right: 2.5rem;
@@ -735,8 +735,8 @@ input[type="number"] {
 }
 
 .btn-search{
-    width: 3.125rem;
-    height: 3.125rem;
+    width: 5.125rem;
+    height: 5.125rem;
     border-style: none;
     font-size: 1.25rem;
     font-weight: bold;
