@@ -38,6 +38,8 @@ body {
     font-size: 16px;
     letter-spacing: 0.75px;
     font-weight: 300;
+    background-image: url("../images/bg-light.svg");
+    background-color: var(--secondary-color);
 }
 
 h1,
@@ -688,7 +690,7 @@ input[type="number"] {
     color: var(--secondary-color);
 }
 
-.modal-btn--join {
+.modal-btn--contact {
     border: 1px solid var(--accent-color-dark);
     background-color: var(--accent-color-dark);
     color: var(--secondary-color);
@@ -1165,5 +1167,11 @@ input[type="number"] {
         .club-hero-content {
             width: 100%;
             margin-bottom: 3rem;
+        }
+
+        /* Profile Page */
+
+        .profile-container {
+            padding-bottom: 55%;
         }
     }
