@@ -8,7 +8,11 @@
                     <img src="static/images/logo-transparent.png" alt="Cook House Logo">
                     <h1>Bringing Strangers Together</h1>
                     <p>Creating friendships with food, drink and conversation</p>
-                    <a href="{{ url_for('register') }}" class="uppercase button">Register</a>
+                    {% if session.user %}
+                        <a href="{{ url_for('get_event') }}" class="uppercase button">Supper Club</a>
+                    {% else %}
+                        <a href="{{ url_for('register') }}" class="uppercase button">Register</a>
+                    {% endif %}
                 </div>
                 <div class="col-lg-6 col-xs-12 hero-right">
                     <span role="img" aria-label="Image of friends chinking wine glasses over dine"></span>
