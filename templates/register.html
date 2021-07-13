@@ -42,6 +42,14 @@
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                             <p class="mt-2 form-info-text"><em>* Must be more than 5 characters long</em></p>
                         </div>
+                        <div class="mb-4">
+                            <label for="profile_pic" class="form-label">Profile Picture</label>
+                            <input type="url" class="form-control" id="profile_pic" name="profile_pic" placeholder="https://i.postimg.cc/AAAA/example.png" required>
+                            <p class="mt-2 form-info-text"><em>* Must be supplied through a URL</em></p>
+                            <a href="https://postimages.org/" target="_blank" rel="noopener" class="form-info-text">
+                                <em>* We recommend <span class="underline">Postimages</span> - upload and copy the direct link</em>
+                            </a>
+                        </div>
                         <div class="mb-4 text-center">
                             <button type="submit" class="button button--alt">Register</button>
                         </div>
