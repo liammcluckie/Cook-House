@@ -45,14 +45,17 @@ def register():
         register = {
             # get user data from name attribute
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "profile_pic": request.form.get("profile_pic")
         }
         mongo.db.users.insert_one(register)
         
         # put the new user into 'session'
         session["user"] = request.form.get("username").lower()
+        session["user_img"] = request.form.get("profile_pic")
         flash("Registration Successful!")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("profile", username=session["user"],
+            profile_pic=session["user_img"]))
     
     return render_template("register.html")
 
@@ -91,10 +94,14 @@ def profile(username):
     # get the session username
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    profile_pic = mongo.db.users.find_one(
+        {"profile_pic": session["user_img"]})["profile_pic"]
     events = mongo.db.events.find()
     
     if session["user"]:
-        return render_template("profile.html", username=username, events=events)
+        return render_template("profile.html",
+            username=username, events=events,
+            profile_pic=profile_pic)
     
     return redirect(url_for("sign_in"))
 
