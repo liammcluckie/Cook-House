@@ -75,7 +75,7 @@ def sign_in():
                     flash("Hello, {}! Welcome to cook house".format(
                         request.form.get("username")))
                     return redirect(url_for(
-                        "profile", username=session["user"]))   
+                        "profile", username=session["user"]))  
             else:
                 # Invalid password
                 flash("Incorrect username/password")
@@ -96,7 +96,7 @@ def profile(username):
         {"username": session["user"]})["username"]
     profile_pic = mongo.db.users.find_one(
         {"profile_pic": session["user_img"]})["profile_pic"]
-    events = mongo.db.events.find()
+    events = list(mongo.db.events.find({"created_by": session["user"]}))
     
     if session["user"]:
         return render_template("profile.html",
@@ -169,11 +169,12 @@ def edit_event(event_id):
             "main": request.form.get("main"),
             "dessert": request.form.get("dessert"),
             "extras": request.form.get("extras"),
+            "counter": int(request.form.get("counter")),
             "created_by": session["user"]
         }
         mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
         flash("Supper Club Successfully Updated")
-        return redirect(url_for("get_event"))
+        return redirect(url_for("profile", username=session['user']))
 
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -184,7 +185,7 @@ def edit_event(event_id):
 def delete_event(event_id):
     mongo.db.events.remove({"_id": ObjectId(event_id)})
     flash("Supper Club Successfully Deleted")
-    return redirect(url_for("get_event"))
+    return redirect(url_for("profile", username=session['user']))
 
 
 @app.route("/supper-club")
