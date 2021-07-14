@@ -34,22 +34,25 @@
     <!-- Users Events -->
     <section class="light-pattern-bg profile-container">
         <div class="container">
-            {% if session.user|lower == events.created_by|lower %}
-                <div class="row">
-                    <div class="col mb-5">
-                        <h3 class="mt-5 dark-text">{{ username }}'s Supper Clubs</h3>
-                        <h5 class="dark-text mb-4">Time for your next supper club?</h5>
-                        <a href="{{ url_for('create_event') }}" class="button--alt button uppercase">Create Event</a>
-                    </div>
-                </div>
-            {% endif %}
-            <!-- Profile Image -->
             <div class="row">
+            {% if events|length > 0 %}
+                <div class="col-lg-6 col-md-6 mb-lg-5 mb-md-2">
+                    <h3 class="mt-5 dark-text">{{ username }}'s Supper Clubs</h3>
+                    <h5 class="dark-text mb-4">Time for your next supper club?</h5>
+                    <a href="{{ url_for('create_event') }}" class="button--alt button uppercase">Create Event</a>
+                </div>
+            <!-- Profile Image -->
+                <div class="col-lg-2 col-md-3 mt-3 mb-3 profile-img-container">
+                    <img src="{{ profile_pic }}" alt="Users chosen profile picture" class="profile-img">
+                </div>
+            </div>
+            {% else %}
                 <div class="col-lg-2 col-md-4 mt-3 profile-img-container center">
                     <img src="{{ profile_pic }}" alt="Users chosen profile picture" class="profile-img">
                 </div>
             </div>
             <!-- End of Profile Image -->
+            {% endif %}
             <div class="row">
             {% for event in events if session.user|lower == event.created_by|lower %}
                 <div class="col-lg-4 col-md-6">
