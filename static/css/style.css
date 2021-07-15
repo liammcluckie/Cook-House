@@ -797,6 +797,13 @@ input[type="number"] {
     }
 }
 
+/* Search Form */
+
+.search-form {
+    border: none;
+    box-shadow: none;
+}
+
 /* Event Cards */
 
 .card {
