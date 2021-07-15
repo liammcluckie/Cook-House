@@ -27,7 +27,7 @@ def home():
 
 @app.route("/get_event")
 def get_event():
-    events = mongo.db.events.find()
+    events = mongo.db.events.find().sort("date", 1)
     return render_template("supper-club.html", events=events)
 
 
