@@ -27,7 +27,14 @@ def home():
 
 @app.route("/get_event")
 def get_event():
-    events = mongo.db.events.find().sort("date", 1)
+    events = list(mongo.db.events.find().sort("date", 1))
+    return render_template("supper-club.html", events=events)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    events = list(mongo.db.events.find({"$text": {"$search": query}}))
     return render_template("supper-club.html", events=events)
 
 
@@ -75,7 +82,7 @@ def sign_in():
                     flash("Hello, {}! Welcome to cook house".format(
                         request.form.get("username")))
                     return redirect(url_for(
-                        "profile", username=session["user"]))  
+                        "profile", username=session["user"])) 
             else:
                 # Invalid password
                 flash("Incorrect username/password")
