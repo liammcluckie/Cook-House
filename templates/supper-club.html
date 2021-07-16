@@ -11,7 +11,7 @@
             </div>
         </div>
     </header>
-    <!-- Page intro/search -->
+    <!-- Page intro -->
     <section class="light-pattern-bg">
         <div class="container-fluid mb-5">
             <div class="row">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <!-- End of page intro/search -->
+        <!-- End of page intro -->
         <!-- Flash Messages -->
         <div>
             {% with messages = get_flashed_messages() %}
@@ -40,7 +40,7 @@
             {% endwith %}
         </div>
         <!-- End of Flash Messages -->
-        <!-- Events card -->
+        <!-- Search -->
         <div class="container pb-5">
             <div class="row mb-5">
                 <form action="{{ url_for('search') }}" method="POST" class="search-form">
@@ -52,13 +52,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-4">
-                            <a href="{{ url_for('get_event') }}" class="event-cancel-btn">Clear</a>
-                            <button type="submit" class="event-confirm-btn">Search</button>
+                        <div class="col-12">
+                            <a href="{{ url_for('get_event') }}" class="event-clear-btn">Clear</a>
+                            <button type="submit" class="event-search-btn">Search</button>
                         </div>
                     </div>
                 </form>
             </div>
+            <!-- End of Search -->
+        <!-- Events card -->
             {% if events|length > 0 %}
             <div class="row">
                 {% for event in events %}
