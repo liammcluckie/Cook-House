@@ -728,6 +728,7 @@ input[type="number"] {
     background-color: var(--primary-color-dark);
     padding-right: 2.5rem;
     color:var(--primary-color-dark);
+    text-indent: 0.75rem;
 }
 
 .input-search::placeholder {
@@ -771,6 +772,40 @@ input[type="number"] {
     background-color: transparent;
     border-bottom: 1px solid rgba(255,255,255,.5);
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.event-search-btn {
+    border: 1px solid var(--accent-color-dark);
+    border-radius: 32px;
+    background-color: var(--accent-color-dark);
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-family: var(--font-title);
+    transition: all 0.5s ease-in-out;
+    display: inline-block;
+    margin-left: 0.75rem;
+}
+
+.event-search-btn:hover,
+.event-search-btn:focus {
+    transform: scale(0.95);
+}
+
+.event-clear-btn {
+    border: 1px solid var(--cancel-color);
+    border-radius: 32px;
+    background-color: var(--cancel-color);
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-family: var(--font-title);
+    transition: all 0.5s ease-in-out;
+    display: inline-block;
+}
+
+.event-clear-btn:hover,
+.event-clear-btn:focus {
+    transform: scale(0.95);
+    color: #fff;
 }
 
 @media (max-width: 480px) {
@@ -1192,6 +1227,13 @@ input[type="number"] {
         .club-hero-content {
             width: 100%;
             margin-bottom: 3rem;
+        }
+
+        /* Search */ 
+
+        .event-clear-btn,
+        .event-search-btn {
+            font-size: 1.5rem;
         }
 
         /* Profile Page */
