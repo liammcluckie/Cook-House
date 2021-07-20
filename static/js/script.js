@@ -102,5 +102,25 @@ cancelJoinClub = document.querySelectorAll('.event-cancel-btn').forEach(item => 
     });
 });
 
+/**
+ * Disable user ability to select dates prior to the current date
+ * Code taken from https://www.codegrepper.com/code-examples/html/how+to+disable+previous+date+in+html+input+type+date
+ */
 
+$(document).ready(function() {
+    const dtToday = new Date();
+    let month = dtToday.getMonth() + 1;
+    let day = dtToday.getDate();
+    let year = dtToday.getFullYear();
+
+    if (month < 10) {
+        month = '0' + month.toString();
+    }
+    if (day < 10) {
+        day = '0' + day.toString();
+    }
+    
+    const maxDate = year + '-' + month + '-' + day;
+    $('#date').attr('min', maxDate);
+});
 
