@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12 center">
                     <form method="POST" action="{{ url_for('edit_event', event_id=event._id) }}">
-                        <a href="{{ url_for('get_event') }}">
+                        <a href="{{ url_for('profile', username=session['user'], user_img=session['profile_pic']) }}">
                             <div class="cancel-container">
                                 <div class="leftright"></div>
                                 <div class="rightleft"></div>
