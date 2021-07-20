@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
     
@@ -25,9 +26,23 @@ def home():
     return render_template("home.html")
 
 
+def delete_expired_events():
+    current_date = datetime.now()
+    current_date_string = current_date.strftime("%Y-%m-%d")
+    events = list(mongo.db.events.find())
+
+    for event in events:
+        event_date = event['date']
+
+        if current_date_string > event_date:
+            mongo.db.events.remove(event)
+            print(event_date)
+
+
 @app.route("/get_event")
 def get_event():
     events = list(mongo.db.events.find().sort("date", 1))
+    delete_expired_events()
     return render_template("supper-club.html", events=events)
 
 
@@ -61,6 +76,7 @@ def register():
         session["user"] = request.form.get("username").lower()
         session["user_img"] = request.form.get("profile_pic")
         flash("Registration Successful!")
+        delete_expired_events()
         return redirect(url_for("profile", username=session["user"],
             profile_pic=session["user_img"]))
     
@@ -81,8 +97,9 @@ def sign_in():
                     session["user"] = request.form.get("username").lower()
                     flash("Hello, {}! Welcome to cook house".format(
                         request.form.get("username")))
+                    delete_expired_events()
                     return redirect(url_for(
-                        "profile", username=session["user"])) 
+                        "profile", username=session["user"]))
             else:
                 # Invalid password
                 flash("Incorrect username/password")
@@ -106,6 +123,7 @@ def profile(username):
     events = list(mongo.db.events.find({"created_by": session["user"]}))
     
     if session["user"]:
+        delete_expired_events()
         return render_template("profile.html",
             username=username, events=events,
             profile_pic=profile_pic)
@@ -129,6 +147,7 @@ def contact():
 @app.route("/create-event", methods=["GET", "POST"])
 def create_event():
     if request.method == "POST":
+        print("DATE: ", request.form.get("date"))
         event = {
             "event_name": request.form.get("event_name"),
             "location": request.form.get("location"),
@@ -143,6 +162,7 @@ def create_event():
         }
         mongo.db.events.insert_one(event)
         flash("Supper Club Successfully Added")
+        delete_expired_events()
         return redirect(url_for("get_event"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -171,7 +191,7 @@ def edit_event(event_id):
             "event_name": request.form.get("event_name"),
             "location": request.form.get("location"),
             "category_name": request.form.get("category_name"),
-            "date": request.form.get("date"),
+            "date": datetime.strptime(request.form.get("date"), "%Y-%m-%d"),
             "starter": request.form.get("starter"),
             "main": request.form.get("main"),
             "dessert": request.form.get("dessert"),
