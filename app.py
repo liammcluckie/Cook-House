@@ -183,7 +183,6 @@ def update_counter(event_id):
     return render_template("supper-club.html", event=event)
 
 
-
 @app.route("/edit-event/<event_id>", methods=["GET", "POST"])
 def edit_event(event_id):
     if request.method == "POST":
@@ -191,7 +190,7 @@ def edit_event(event_id):
             "event_name": request.form.get("event_name"),
             "location": request.form.get("location"),
             "category_name": request.form.get("category_name"),
-            "date": datetime.strptime(request.form.get("date"), "%Y-%m-%d"),
+            "date": request.form.get("date"),
             "starter": request.form.get("starter"),
             "main": request.form.get("main"),
             "dessert": request.form.get("dessert"),
