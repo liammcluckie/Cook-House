@@ -314,6 +314,18 @@ def server_error(e):
     return render_template("500.html"), 500
 
 
+# Gateway error
+@app.errorhandler(502)
+def gateway_error(e):
+    return render_template("502.html"), 502
+
+
+# Maintenance error
+@app.errorhandler(503)
+def maintenance_error(e):
+    return render_template("503.html"), 503
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
