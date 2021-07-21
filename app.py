@@ -8,10 +8,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 if os.path.exists("env.py"):
     import env
-    
- 
+
+
 app = Flask(__name__)
 
+# Connect to database
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
@@ -20,13 +21,21 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Homepage
 @app.route("/")
 @app.route("/home")
 def home():
+    """ Return and render homepage template """
+
     return render_template("home.html")
 
 
+# Delete expired events
 def delete_expired_events():
+    """ Store the current date as a string in a variable
+    Loop through all events and store events date in a variable
+    If the event date is greater than the current date and remove from db """
+
     current_date = datetime.now()
     current_date_string = current_date.strftime("%Y-%m-%d")
     events = list(mongo.db.events.find())
@@ -39,31 +48,48 @@ def delete_expired_events():
             print(event_date)
 
 
+# Retrieve events/supper clubs
 @app.route("/get_event")
 def get_event():
+    """ Get all event documents from DB
+    Sort in ascending date order
+    Call delete expired dates function """
+
     events = list(mongo.db.events.find().sort("date", 1))
     delete_expired_events()
     return render_template("supper-club.html", events=events)
 
 
+# Events search functionality
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """ Retrieve user input from search box
+    Perform text search for events in DB
+    Output retrieved events """
+
     query = request.form.get("query")
     events = list(mongo.db.events.find({"$text": {"$search": query}}))
     return render_template("supper-club.html", events=events)
 
 
+# Register new user
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """ Check that username is unique
+    Store successful registered user info in DB
+    Perform password hash to encrypt
+    return new user profile page with correct info
+    Call delete expired events function """
+
     if request.method == "POST":
         # check if username exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             flash("Sorry username already exists")
             return redirect(url_for("register"))
-        
+
         register = {
             # get user data from name attribute
             "username": request.form.get("username").lower(),
@@ -71,7 +97,7 @@ def register():
             "profile_pic": request.form.get("profile_pic")
         }
         mongo.db.users.insert_one(register)
-        
+
         # put the new user into 'session'
         session["user"] = request.form.get("username").lower()
         session["user_img"] = request.form.get("profile_pic")
@@ -79,17 +105,23 @@ def register():
         delete_expired_events()
         return redirect(url_for("profile", username=session["user"],
             profile_pic=session["user_img"]))
-    
+
     return render_template("register.html")
 
 
+# User Sign in
 @app.route("/sign-in", methods=["GET", "POST"])
 def sign_in():
+    """ Search DB to find registered user
+    Check users details and put user into a session
+    Call delete expired events function
+    Return user to profile page or redirect if incorrect """
+
     if request.method == "POST":
         # check if username exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
+
         if existing_user:
             # ensure hashed password matches
             if check_password_hash(
@@ -104,50 +136,69 @@ def sign_in():
                 # Invalid password
                 flash("Incorrect username/password")
                 return redirect(url_for("sign_in"))
-            
+
         else:
             # username doesn't exist
             flash("Incorrect username/password")
             return redirect(url_for("sign_in"))
-        
+
     return render_template("sign-in.html")
 
 
+# User profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # get the session username
+    """ Find username in DB and store in a session
+    Find profile image in DB and store in a session
+    Find session users created events
+    Call delete expired events function
+    Return profile page with events, username and image """
+
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     profile_pic = mongo.db.users.find_one(
         {"profile_pic": session["user_img"]})["profile_pic"]
     events = list(mongo.db.events.find({"created_by": session["user"]}))
-    
+
     if session["user"]:
         delete_expired_events()
         return render_template("profile.html",
             username=username, events=events,
             profile_pic=profile_pic)
-    
+
     return redirect(url_for("sign_in"))
 
 
+# Sign user out
 @app.route("/sign-out")
 def sign_out():
-    # remove user from session cookies
+    """ Remove session user cookie
+    Return sign in page """
+
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("sign_in"))
 
 
+# Contact page
 @app.route("/contact")
 def contact():
+    """ Render and return contact page """
+
     return render_template("contact.html")
 
 
+# Create event/supper club
 @app.route("/create-event", methods=["GET", "POST"])
 def create_event():
+    """ Retrieve all user form data
+    Convert counter input into an integer
+    Insert event document into DB
+    Call delete expired events function
+    Find and sort category name order
+    Redirect to get event page """
+
     if request.method == "POST":
-        print("DATE: ", request.form.get("date"))
         event = {
             "event_name": request.form.get("event_name"),
             "location": request.form.get("location"),
@@ -169,8 +220,13 @@ def create_event():
     return render_template("create-event.html", categories=categories)
 
 
+# Update event counter
 @app.route("/update-counter/<event_id>", methods=["GET", "POST"])
 def update_counter(event_id):
+    """ Store counter input as an integer in a variable
+    Update counter item in DB with user input that matched object id
+    Return supper club page """
+
     if request.method == "POST":
         update = {"counter": int(request.form.get("counter"))}
 
@@ -183,8 +239,14 @@ def update_counter(event_id):
     return render_template("supper-club.html", event=event)
 
 
+# Edit event
 @app.route("/edit-event/<event_id>", methods=["GET", "POST"])
 def edit_event(event_id):
+    """ Find event object id to update
+    Sort category names order
+    Submit updated user event input to matching object id
+    Redirect user to profile page """
+
     if request.method == "POST":
         submit = {
             "event_name": request.form.get("event_name"),
@@ -207,20 +269,26 @@ def edit_event(event_id):
     return render_template("edit-event.html", event=event, categories=categories)
 
 
+# Delete event
 @app.route("/delete-event/<event_id>")
 def delete_event(event_id):
+    """ Find matching event object id in DB and remove
+    Return user to profile """
+
     mongo.db.events.remove({"_id": ObjectId(event_id)})
     flash("Supper Club Successfully Deleted")
     return redirect(url_for("profile", username=session['user']))
 
 
+# Supper club
 @app.route("/supper-club")
 def supper_club():
+    """ Render supper club page """
+
     return render_template("supper-club.html")
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"), 
+    app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True) 
-    
+            debug=True)
