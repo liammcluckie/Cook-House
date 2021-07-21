@@ -326,6 +326,12 @@ def maintenance_error(e):
     return render_template("503.html"), 503
 
 
+# Server Response error
+@app.errorhandler(504)
+def server_response_error(e):
+    return render_template("504.html"), 504
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
