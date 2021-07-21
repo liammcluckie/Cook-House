@@ -296,6 +296,12 @@ def auth_error(e):
     return render_template("401.html"), 401
 
 
+# Permissions error
+@app.errorhandler(403)
+def permission_error(e):
+    return render_template("403.html"), 403
+
+
 # Invalid URL
 @app.errorhandler(404)
 def page_not_found(e):
