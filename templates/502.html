@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+    <div class="container-fluid dark-pattern-bg">
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="static/images/logo-transparent.png" alt="Cook House Logo">
+                <h1 class="page-title">502 Error</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="text-center container mt-5 mb-5 error-page">
+    <div class="row">
+        <div class="col dark-text error-page-content">
+            <h2 class="mb-4">We're sorry there seems to be a network problem. Please wait and try again...</h2>
+            <h4 class="mb-4">If there is a problem with our site please let us <a href="{{ url_for('contact') }}">know.</a></h3>
+            <a href="{{ url_for('home') }}" class="uppercase button button--alt">Home</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
