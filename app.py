@@ -290,6 +290,12 @@ def supper_club():
 
 # Custom error pages
 
+# Authorization error
+@app.errorhandler(401)
+def auth_error(e):
+    return render_template("401.html"), 401
+
+
 # Invalid URL
 @app.errorhandler(404)
 def page_not_found(e):
