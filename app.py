@@ -100,11 +100,9 @@ def register():
 
         # put the new user into 'session'
         session["user"] = request.form.get("username").lower()
-        session["user_img"] = request.form.get("profile_pic")
         flash("Registration Successful!")
         delete_expired_events()
-        return redirect(url_for("profile", username=session["user"],
-            profile_pic=session["user_img"]))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
 
@@ -148,23 +146,22 @@ def sign_in():
 # User profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    """ Find username in DB and store in a session
-    Find profile image in DB and store in a session
+    """ Find username in DB stored in a session
+    Find user object from the current session["user"]
     Find session users created events
     Call delete expired events function
     Return profile page with events, username and image """
 
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    profile_pic = mongo.db.users.find_one(
-        {"profile_pic": session["user_img"]})["profile_pic"]
+    user_profile = mongo.db.users.find_one({"username": session["user"]})
     events = list(mongo.db.events.find({"created_by": session["user"]}))
 
     if session["user"]:
         delete_expired_events()
         return render_template("profile.html",
             username=username, events=events,
-            profile_pic=profile_pic)
+            user_profile=user_profile)
 
     return redirect(url_for("sign_in"))
 
@@ -172,7 +169,7 @@ def profile(username):
 # Sign user out
 @app.route("/sign-out")
 def sign_out():
-    """ Remove session user cookie
+    """ Remove session user
     Return sign in page """
 
     flash("You have been logged out")
