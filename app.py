@@ -217,18 +217,23 @@ def create_event():
     return render_template("create-event.html", categories=categories)
 
 
-# Update event counter
+# Update event guest counter and email addresses
 @app.route("/update-counter/<event_id>", methods=["GET", "POST"])
-def update_counter(event_id):
+def update_event_guests(event_id):
     """ Store counter input as an integer in a variable
     Update counter item in DB with user input that matched object id
+    Add attending guests email to DB as an object within an array
     Return supper club page """
 
     if request.method == "POST":
         update = {"counter": int(request.form.get("counter"))}
+        # join_email = {"guest_email": request.form.get("join_event_email")}
 
         mongo.db.events.update({"_id": ObjectId(event_id)},
             {"$set": update})
+        mongo.db.events.update({"_id": ObjectId(event_id)},
+            {"$push": {"guest_emails": {
+                "guest_emails": request.form.get("join_event_email")}}})
         flash("Supper Club Successfully Joined!")
         return redirect(url_for("get_event"))
 
