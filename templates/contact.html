@@ -19,28 +19,33 @@
                     <h2>Want to Know More?</h2>
                     <h3>Get in Touch</h3>
                     <i class="fas fa-arrow-circle-down"></i>
+                    <h4 class="contact-success mt-3" id="contact-success">Message Sent! We'll be in touch soon</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12 center">
-                    <form>
+                    <form id="contact-form" onsubmit="return validateForm(event)">
                         <div class="mb-3 mt-3 contact-names">
                             <div>
                                 <label for="fname" class="form-label">First Name</label>
                                 <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required>
+                                <p class="contact-error mt-1" id="fname-error"><strong>* Please enter a name using valid characters</strong></p>
                             </div>
                             <div>
                                 <label for="lname" class="form-label">Last Name</label>
                                 <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required>
+                                <p class="contact-error mt-1" id="lname-error"><strong>* Please enter a name using valid characters</strong></p>
                             </div>
                           </div>
                         <div class="mb-4 text-center center contact-email">
                             <label for="email" class="form-label">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+                            <p class="contact-error mt-1" id="email-error"><strong>* Please enter a valid email</strong></p>
                         </div>
                         <div class="mb-4 text-center contact-message">
                             <label for="message" class="form-label">Message</label>
                             <textarea type="text" class="form-control" id="message" name="message" placeholder="Please Type Your Message Here..." rows="5" required></textarea>
+                            <p class="contact-error mt-1" id="message-error"><strong>* Please ensure you have included a message</strong></p>
                         </div>
                         <div class="mb-4 text-center">
                             <button type="submit" class="button button--alt">Send</button>
