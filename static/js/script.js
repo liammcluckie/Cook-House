@@ -124,3 +124,76 @@ $(document).ready(function() {
     $('#date').attr('min', maxDate);
 });
 
+// Emails
+
+(function(){
+    emailjs.init("user_9Z5AP7qghYkLu9E9UhaLn");
+})();
+
+function sendMail(contactForm) {
+    emailjs.send("service_n592rgm", "cook_house", {
+        "first_name": contactForm.fname.value,
+        "last_name": contactForm.lname.value,
+        "from_email": contactForm.email.value,
+        "message": contactForm.message.value
+    })
+    .then(
+        function success() {
+            const success = document.getElementById('contact-success');
+            success.style.display = "block";
+        }
+    );
+    document.getElementById("contact-form").reset();
+    return false;
+}
+
+// Validate
+
+function validateForm(event) {
+    event.preventDefault();
+    // Form Data
+    const fName = document.getElementById("fname").value;
+    const lName = document.getElementById("lname").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message");
+    // Valid Regex code taken from https://www.w3resource.com/javascript/form/javascript-sample-registration-form-validation.php
+    const validCharacters = /^[a-zA-Z\s]*$/;
+    const validEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    // Store test in variables
+    const correctFname = validCharacters.test(fName);
+    const correctLname = validCharacters.test(lName);
+    const correctEmail = validEmail.test(email); 
+    const messageLength = message.value.trim().length;
+    // Check user input
+    if (!correctFname) {
+        document.getElementById('fname-error').style.display = "block";
+    } else {
+        document.getElementById('fname-error').style.display = "none";
+    }
+
+    if (!correctLname) {
+        document.getElementById('lname-error').style.display = "block";
+    } else {
+        document.getElementById('lname-error').style.display = "none";
+    }
+
+    if (!correctEmail) {
+        document.getElementById('email-error').style.display = "block";
+    } else {
+        document.getElementById('email-error').style.display = "none";
+    }
+
+    if (messageLength === 0) {
+        document.getElementById('message-error').style.display = "block";
+    } else {
+        document.getElementById('message-error').style.display = "none";
+    }
+
+    if (correctFname && correctLname && correctEmail && messageLength > 0) {
+        document.querySelectorAll('.contact-error').forEach(contactError => {
+            contactError.style.display = "none";
+        });
+        const form = document.getElementById("contact-form");
+        sendMail(form);
+    }
+}   
