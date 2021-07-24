@@ -552,6 +552,17 @@ input[type="number"] {
     border-radius: 50%;
 }
 
+.contact-success {
+    font-style: italic;
+    display: none;
+}
+
+.contact-error {
+    font-style: italic;
+    color: var(--cancel-color);
+    display: none;
+}
+
 /* Code for animation https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
 
 @keyframes pulse {
