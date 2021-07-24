@@ -68,7 +68,7 @@
                         <div class="card bg-primary-color mb-4">
                             <div class="card-body">
                                 <!-- Join Event section -->
-                                <form method="POST" class="event-join-form" action="{{ url_for('update_counter', event_id=event._id) }}">
+                                <form method="POST" class="event-join-form" action="{{ url_for('update_event_guests', event_id=event._id) }}">
                                     <h4 class="card-form-title text-center mt-3 mb-3">Join Club</h4>
                                     <input type="number" name="counter" class="form-control counter" min="{{ event.counter }}" max="20" value="{{ event.counter }}">
                                     <div class="text-center">
