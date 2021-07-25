@@ -166,6 +166,42 @@ def profile(username):
     return redirect(url_for("sign_in"))
 
 
+# User edit profile
+@app.route("/edit-profile/<user_id>", methods=["GET", "POST"])
+def edit_profile(user_id):
+    """ Render edit profile page
+    Find the user in the DB
+    If form is submitted retrieve the users input
+    Update the users current info in DB with the new info """
+
+    if request.method == "POST":
+        update_profile = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "profile_pic": request.form.get("profile_pic")
+        }
+        session["user"] = request.form.get("username").lower()
+        mongo.db.users.update({"_id": ObjectId(user_id)}, update_profile)
+        flash("Profile Updated")
+        return redirect(url_for("profile", username=session['user']))
+
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template("edit-profile.html", user=user)
+
+
+# User Delete Profile
+@app.route("/delete-profile/<user_id>")
+def delete_profile(user_id):
+    """ Delete all events in the DB created by session user
+    Delete user document from DB by retrieving the users ObjectId
+    Remove the deleted user from the session """
+
+    mongo.db.events.delete_many({"created_by": session["user"]})
+    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+    session.pop("user")
+    return redirect(url_for("home"))
+
+
 # Sign user out
 @app.route("/sign-out")
 def sign_out():
@@ -277,7 +313,7 @@ def delete_event(event_id):
     """ Find matching event object id in DB and remove
     Return user to profile """
 
-    mongo.db.events.remove({"_id": ObjectId(event_id)})
+    mongo.db.events.delete_one({"_id": ObjectId(event_id)})
     flash("Supper Club Successfully Deleted")
     return redirect(url_for("profile", username=session['user']))
 
