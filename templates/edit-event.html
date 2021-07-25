@@ -37,13 +37,13 @@
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-sm-12 center">
                     <form method="POST" action="{{ url_for('edit_event', event_id=event._id) }}">
-                        <a href="{{ url_for('profile', username=session['user'], user_img=session['profile_pic']) }}">
-                            <div class="cancel-container">
+                        <div class="cancel-container">
+                            <a href="{{ url_for('profile', username=session['user']) }}">
                                 <div class="leftright"></div>
                                 <div class="rightleft"></div>
                                 <label class="cancel-label">Cancel</label>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                         <legend class="text-center">Event</legend>
                         <div class="mb-1 mt-5">
                             <label for="event_name" class="form-label"></label>
