@@ -4,9 +4,33 @@
     <header>
         <div class="container-fluid dark-pattern-bg">
             <div class="row">
-                <div class="col-lg-4">
+            <div class="col-lg-4 text-center mb-4">
                     <img src="../static/images/logo-transparent.png" alt="Cook House Logo">
                     <h1 class="page-title">{{ username }}'s Profile</h1>
+                    <a href="{{ url_for('edit_profile', user_id=user_profile._id) }}" class="profile-update edit-btn">Edit Profile&nbsp;</a>
+                    <a href="#" class="profile-update delete-btn" data-bs-toggle="modal" data-bs-target="#removeUser">
+                        Delete Profile
+                    </a>
+                    <!-- Delete Profile Modal -->
+                    <div class="modal fade" id="removeUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title uppercase" id="staticBackdropLabel">&nbsp;Delete Profile</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Are you sure you want to delete your profile and all created events?</p>
+                                    <p>This change cannot be undone!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="modal-btn modal-btn--cancel" data-bs-dismiss="modal">Cancel</button>
+                                    <a href="{{ url_for('delete_profile', user_id=user_profile._id) }}" class="modal-btn modal-btn--delete">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Delete Profile Modal -->
                 </div>
             </div>
         </div>
