@@ -35,16 +35,16 @@
                         <div class="mb-3 mt-3">
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="Username" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
-                            <p class="mt-2 form-info-text"><em>* Must contain letters and numbers only</em></p>
+                            <p class="mt-2 form-info-text"><em>* Must contain letters and/or numbers | Min length 5 char</em></p>
                           </div>
                         <div class="mb-4">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
-                            <p class="mt-2 form-info-text"><em>* Must be more than 5 characters long</em></p>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="8" maxlength="20" pattern="^[a-zA-Z0-9]{8,20}$" required>
+                            <p class="mt-2 form-info-text"><em>* Must contain letters and/or numbers | Min length 8 char</em></p>
                         </div>
                         <div class="mb-4">
                             <label for="profile_pic" class="form-label">Profile Picture</label>
-                            <input type="url" class="form-control" id="profile_pic" name="profile_pic" placeholder="https://i.postimg.cc/AAAA/example.png" required>
+                            <input type="url" class="form-control" id="profile_pic" name="profile_pic" placeholder="https://i.postimg.cc/AAAA/example.png" pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png)" required>
                             <p class="mt-2 form-info-text"><em>* Must be supplied through a URL</em></p>
                             <a href="https://postimages.org/" target="_blank" rel="noopener" class="form-info-text">
                                 <em>* We recommend <span class="underline">Postimages</span> - <strong class="uppercase">upload and copy the direct link</strong></em>
