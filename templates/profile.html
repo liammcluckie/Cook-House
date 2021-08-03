@@ -60,7 +60,7 @@
         <div class="container">
             <div class="row">
             {% if events|length > 0 %}
-                <div class="col-lg-6 col-md-6 mb-lg-5 mb-md-2">
+                <div class="col-lg-5 col-md-6 mb-lg-5 mb-md-3 profile-info">
                     <h3 class="mt-5 dark-text">{{ username }}'s Supper Clubs</h3>
                     <h5 class="dark-text mb-4">Time for your next supper club?</h5>
                     <a href="{{ url_for('create_event') }}" class="button--alt button uppercase">Create Event</a>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             {% else %}
-                <div class="col-lg-2 col-md-4 mt-3 profile-img-container center">
+                <div class="col-lg-2 col-md-3 mt-3 profile-img-container center">
                     <img src="{{ user_profile.profile_pic }}" alt="Users chosen profile picture" class="profile-img">
                 </div>
             </div>
