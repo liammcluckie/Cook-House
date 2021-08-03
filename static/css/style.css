@@ -167,6 +167,7 @@ li {
     background: linear-gradient(to right, var(--primary-color) 50%, transparent 50%);
     background-size: 205%;
     background-position: right bottom;
+    display: inline-block;
 }
 
 .button--alt:hover,
@@ -1027,13 +1028,25 @@ input[type="number"] {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .profile-img {
-    border-radius: 50%;
+    border-radius: 8px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 780px) {
+    .profile-info {
+        text-align: center;
+    }
+    
+    .profile-img-container {
+        width: 75%;
+        margin: 2.5rem auto;
+    }
+
     .profile-img {
         width: 50%;
     }
