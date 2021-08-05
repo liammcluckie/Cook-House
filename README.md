@@ -1,6 +1,8 @@
 # Cook House
 
-[View Live Project Here](#)
+[View Live Project Here](https://cook-house-project.herokuapp.com/)
+
+![Screenshot of landing page on multiple devices](testing/responsive-test/responsive-screenshot.png)
 
 ## Overview 
 
@@ -63,7 +65,9 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
     d. As a user, I want to be able to find using the websites functionality simple with clear instructions.
 
-    e. As a user, I want to have full control of my account to either update details/information or delete my account all together.
+    e. As a user, I want to have full control of my account following computer programming CRUD (create, read, update & delete) operations.
+
+    f. As a user, I want to have full control of my created events following computer programming CRUD (create, read, update & delete) operations.
 
 - **First Time Visitor Goals**
 
