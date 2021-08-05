@@ -25,7 +25,7 @@ Cook House is a website that focuses on bringing strangers and friends together 
 - Typography
 - Imagery
 
-### 3. Database Model
+### 3. [Database Model](#database-model)
 
 ### 4. [Features](#features)
 
@@ -222,9 +222,15 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 - Blue Sapphire (#075570) - Primary Colour - This very dark blue shade is the background colour of the websites logo and will be used throughout for certain background colours such as the navigation menu, and button colours. Blue which naturally has a calming effect, however, using this much darker tone creates a stylish, modern and luxurious effect.
 
+- Blue Sapphire Dark (#06445a) - Primary Colour Dark - A slightly darkened version of the primary colour used throughout the site to help with accessability and readablity where needed.
+
 - Golden Tainoi (#ffc145) - Secondary Colour - This colour is used for the outline of the logo and is a striking contrast the the Blue Sapphire primary colour, that pops out and is extremely aesthetically pleasing. Described as a light orange colour with yellow tones, this colour creates an emotion of happiness and joy something that goes hand in hand with the main purpose of supper clubs which is to bring people together.
 
+- Golden Tainoi Dark (#cc9a37) - Secondary Colour Dark - A slightly darkened version of the secondary colour used throughout the site to help with accessability and readablity where needed.
+
 - Sugar Cane (#f1f1e6) - Accent Colour - This colour will feature throughout the project as a neutral contrast colour to break up the bold colours of the primary and secondary. It will also be used as a background colour when the Blue Sapphire colour really needs to stand out to the user. Described as a light greyish yellow this colour fits in with the palette perfectly, it will never draw attention away from main colours and does exactly what an accent colour needs to.
+
+- Soft Red (#f25c66) - Cancel/Delete Colour - Used as a warning indicator for the user whenever they are making ireversible changes such as deleting their account/events, or to display cancelling an action such as editing their profile/event.
 
 ### Typography
 
@@ -247,3 +253,29 @@ Cook House is a website that focuses on bringing strangers and friends together 
 - Featuring minimally throughout the website will also be the use of icons. These will mainly be used in form sections to convey what a certain element is asking the user to input. For example when a user is creating an event in the section where they are asked for their menu the cutlery icon will be used here. This not only looks aesthetically pleasing but it will compliment the overall fun, enjoyable feeling conveyed from the website.
 
 ---
+
+## Database Model
+
+- This project uses [MongoDB](https://www.mongodb.com/) for all database aspects. MongoDB is a cross platform document-orientated database program. Classified as a NoSQL database program it uses JSON-like documents with optional schemas. 
+
+- The main schema used in this project is ObjectId.
+    - The objectId schema type provides 12-bit MongoDB-specific unique values that can be used as identifiers for objects.
+    - This assigned to any document added to a collection in the database in order to manipulate it at a later date by searching the database by using the ObjectId.
+
+- Below is the database diagram plan used for structuring the database in this project. 
+
+![Database diagram chart](readme-screenshots/database-model.png)
+
+As outlined above the three collections in this database are;
+
+- Events - This is the most important as the entire platfrom is based around this functionality. 
+    
+    - Users create an event which is added into the database which stores the author in the event which is then related to the 'Users' collection.
+
+    - When a user signs up for an event their email address is then added to this document in the form of an array (see screenshot below).
+
+    ![Database document example](readme-screenshots/guest-email-db.png)
+
+- Categories - Here all the categories available for the user are stored, these are displayed on the front end when creating/editing an event. Most importantly though this collection is used for searching through created events for specific categories.
+
+- Users - All successful user registrations are stored here with passwords being securly stored by using Pythons Werkzeug Wecurity password hash. This generates a random character string that disguises the users password in the database, without affecting the password that they registered with.
