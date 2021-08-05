@@ -208,11 +208,11 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 #### Wireframes
 
-- [Desktop website view](#)
+- [Desktop website view](wireframes/desktop.pdf)
 
-- [Tablet website view](#)
+- [Tablet website view](wireframes/tablet.pdf)
 
-- [Mobile website view](#)
+- [Mobile website view](wireframes/mobile.pdf)
 
 ## Design
 
@@ -279,3 +279,84 @@ As outlined above the three collections in this database are;
 - Categories - Here all the categories available for the user are stored, these are displayed on the front end when creating/editing an event. Most importantly though this collection is used for searching through created events for specific categories.
 
 - Users - All successful user registrations are stored here with passwords being securly stored by using Pythons Werkzeug Wecurity password hash. This generates a random character string that disguises the users password in the database, without affecting the password that they registered with.
+
+---
+
+## Features 
+
+### Existing Features
+
+- Responsive on all screen sizes and devices.
+
+- The appearance on all buttons and links alters when the user clicks or hovers.
+
+- Success or error messages that will display depending on if the user correctly or incorrectly uses the forms on the website.
+
+- Custom error pages that cover all main errors
+
+- Animated navigation menu button and screen.
+
+- Copyright date in all footers that autmoatically updates each year.
+
+#### Specific Landing Page Features
+
+- Display specific navigation links to the user depending on whether they have signed in or not. This is done by using logic to check if they are signed in and which links are displayed to them.
+
+#### Specific Register Page Features
+
+- Specific error messages are displayed if the user does not fill out the input fields as expected/requested. All of these fields must be correct for the user to successfully register.
+
+- This is achieved using HTML `REGEX pattern` attribute with `min` and `max` attributes.
+
+#### Specific Profile Page Features
+
+- All of the users profile information is displayed including their name and profile picture in an aesthetically pleasing way.
+
+- The user can follow all CRUD operations on this page including editing all aspects of their profile and created events as well as deleting both of these.
+
+- For deleting either there profile or events a confirm modal will pop up once the delete button has been selected asking the user to confirm this. 
+    - If the user has created an event that guests have already joined they will not be able to delete this event and will have to contact the websites administrators by following the contact link.
+
+- A message is displayed to the user depending on if they have created any events yet or not. If they have not a message will prompt them to create their first, else it will ask them if they would like to create more. This increases the likelihood of the websites overall purpose which is for users to create Supper Club events.
+
+#### Specific Supper Club Page Features
+
+- All created events are displayed here in ascending order of when the event is due to take place, therefore showing the user the events that will be taking place closest to the current date.
+
+- The user has the option whether or not they would like the menu for a specific event to display by clicking the 'See menu' button. This has been done in order to not overwhelm the user with information.
+
+- Any event that's date has expired, meaning the event has taken place, will automatically be deleted from the website's front-end and database through the `delete_expired_events()` function.
+
+- This is where users can register for specific events. Each event will have a number field that starts at 0 and displays how many guests are currently attending each event, the maximum amount of guests for any event is 20 persons. 
+    - If a user wishes to join an event they add the number of guests they would like to attend to the already displayed total, if this is not done correctly they will not be allowed to proceed and an error message will be displayed.
+
+    - Once this has been done a 'Join' button will display, this then prompts the user for their email address, they can also choose to cancel at this point, once inputted and confirmed a success message will be displayed and the guests total will be updated. 
+
+    - The users email address will then be added to this event in the database to then be passed onto the author of the event.
+    
+- A search bar allows the user to search for events based on the event name, cuisine and location. Once they have searched the user can select 'Clear' which takes them back to the default Supper Club page displaying all events. This further increases the overall UX of the website increasing user retention.
+
+#### Specific Contact Page Features
+
+- Animated icon to increase the overall UI and desired look of the website.
+
+- Specific error messages displayed for each field if the user does not fill out the fields correctly/at all.
+
+- Success message displayed if all fields are correctly filled out and the form is submitted successfully.
+
+- This page uses [Emailjs](https://www.emailjs.com/) to send the users message to the websites admin through a template using Javascript. Once this has been submitted an automatic response is then sent to the user to confirm that the administrators will be in touch soon.
+
+### Future Features
+
+- Include a form of map api in order to display a visual location of each event to the user.
+
+- Review section that allows users to upload reviews of Hosts to their profile along with images of the event happening. These images would then be displayed on a gallery section on the landing page.
+    - The initial project plan included this feature however it fell outside of the scope for the current build.
+
+- Add pagination to the supper club and profile page so that if the events exceeded a certain total the events would be displayed on a new page and pagination would be displayed.
+
+- Further features added to the search feature to further refine the specifics of the users search.
+
+- The abilty to upload images through a direct file instead or a URL using [Cloudinary](https://cloudinary.com/) to host the images.
+
+- Add a blog page that includes a newsletter sign up, this would feature specific events that had taken place.
