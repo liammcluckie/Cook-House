@@ -350,7 +350,7 @@ li {
     background-attachment: fixed;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 991px) {
     .hero-left {
         height: 50vh;
     }
@@ -366,6 +366,43 @@ li {
     .column-reverse {
         display: flex;
         flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    .hero-right {
+        display: none;
+    } 
+
+    .hero-left {
+        height: 100vh!important;
+    }
+}
+
+@media (max-width: 991px) and (orientation: landscape) { 
+    .hero-right {
+        display: none;
+    } 
+
+    .hero-left {
+        height: 100vh;
+    }
+
+    .hero-left > h1 {
+        padding-bottom: .5rem;
+        font-size: 1.75em;
+    }
+
+    .hero-left > img {
+        padding: 0;
+    }
+    
+}
+
+@media (max-width: 568px) and (orientation: landscape) {
+    .hero-left > p {
+        font-size: 1rem;
+        padding-bottom: 1rem;
     }
 }
 
@@ -430,6 +467,12 @@ li {
     background-size: contain;
     background-attachment: fixed;
     height: 100vh;
+}
+
+@media (max-width: 991px) and (orientation: landscape) {
+    .about-content > h2 {
+        padding-top: 2.5rem;
+    }
 }
 
 @media (max-width: 960px) {
@@ -678,6 +721,12 @@ input[type="number"] {
 @media (max-width: 480px) {
     .club-hero {
         height: 50vh;
+    }
+}
+
+@media (max-width: 960px) and (orientation: landscape) {
+    .club-hero-content {
+        margin-bottom: 2rem;
     }
 }
 
