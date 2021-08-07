@@ -453,4 +453,9 @@ As outlined above the three collections in this database are;
 
 - [Flask PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)
     - Allows the bridge between Flask and PyMongo whilst connecting to the required MongoDB database.
-    
+
+## Testing
+
+Find all information on the testing that has been carried out for this project [here.](TESTING.md)
+
+## Deployment
