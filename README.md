@@ -252,8 +252,6 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 - Featuring minimally throughout the website will also be the use of icons. These will mainly be used in form sections to convey what a certain element is asking the user to input. For example when a user is creating an event in the section where they are asked for their menu the cutlery icon will be used here. This not only looks aesthetically pleasing but it will compliment the overall fun, enjoyable feeling conveyed from the website.
 
----
-
 ## Database Model
 
 - This project uses [MongoDB](https://www.mongodb.com/) for all database aspects. MongoDB is a cross platform document-orientated database program. Classified as a NoSQL database program it uses JSON-like documents with optional schemas. 
@@ -280,8 +278,6 @@ As outlined above the three collections in this database are;
 
 - Users - All successful user registrations are stored here with passwords being securly stored by using Pythons Werkzeug Wecurity password hash. This generates a random character string that disguises the users password in the database, without affecting the password that they registered with.
 
----
-
 ## Features 
 
 ### Existing Features
@@ -298,15 +294,21 @@ As outlined above the three collections in this database are;
 
 - Copyright date in all footers that autmoatically updates each year.
 
+---
+
 #### Specific Landing Page Features
 
 - Display specific navigation links to the user depending on whether they have signed in or not. This is done by using logic to check if they are signed in and which links are displayed to them.
+
+---
 
 #### Specific Register Page Features
 
 - Specific error messages are displayed if the user does not fill out the input fields as expected/requested. All of these fields must be correct for the user to successfully register.
 
 - This is achieved using HTML `REGEX pattern` attribute with `min` and `max` attributes.
+
+---
 
 #### Specific Profile Page Features
 
@@ -318,6 +320,8 @@ As outlined above the three collections in this database are;
     - If the user has created an event that guests have already joined they will not be able to delete this event and will have to contact the websites administrators by following the contact link.
 
 - A message is displayed to the user depending on if they have created any events yet or not. If they have not a message will prompt them to create their first, else it will ask them if they would like to create more. This increases the likelihood of the websites overall purpose which is for users to create Supper Club events.
+
+---
 
 #### Specific Supper Club Page Features
 
@@ -336,6 +340,8 @@ As outlined above the three collections in this database are;
     
 - A search bar allows the user to search for events based on the event name, cuisine and location. Once they have searched the user can select 'Clear' which takes them back to the default Supper Club page displaying all events. This further increases the overall UX of the website increasing user retention.
 
+---
+
 #### Specific Contact Page Features
 
 - Animated icon to increase the overall UI and desired look of the website.
@@ -345,6 +351,8 @@ As outlined above the three collections in this database are;
 - Success message displayed if all fields are correctly filled out and the form is submitted successfully.
 
 - This page uses [Emailjs](https://www.emailjs.com/) to send the users message to the websites admin through a template using Javascript. Once this has been submitted an automatic response is then sent to the user to confirm that the administrators will be in touch soon.
+
+---
 
 ### Future Features
 
@@ -360,3 +368,89 @@ As outlined above the three collections in this database are;
 - The abilty to upload images through a direct file instead or a URL using [Cloudinary](https://cloudinary.com/) to host the images.
 
 - Add a blog page that includes a newsletter sign up, this would feature specific events that had taken place.
+
+## Technologies Used
+
+### Syntax
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+    - HTML5 is a markup language used for structuring and presenting content on the internet.
+
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+    - Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.
+
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+    - Javascript is a lightweight, interpreted, object-oriented language with first-class functions, and is best known as the scripting language for Web pages, but it's used in many
+    non-browser environments as well.
+
+- [JQuery](https://jquery.com/)
+    - jQuery is a JavaScript library that allows web developers to add extra functionality to their websites. It is open source and provided for free under the MIT license.
+
+- [Python](https://www.python.org/)
+    - Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.
+
+---
+
+### Frameworks, Libraries & Programs
+
+- [Balsamiq](https://balsamiq.com/)
+    - The Balsamiq application was used to create wireframes for each website page on various device screen sizes.
+
+- [Font Awesome](https://fontawesome.com/)
+    - Used to display icons as well as the social media icons in the footer.
+
+- [Bootstrap](https://getbootstrap.com/)
+    - Bootstrap was used throughout the site for responsiveness using the grid system, all forms and all modals.
+
+- [Google Fonts](https://fonts.google.com/)
+    - Used to import the two fonts used throughout the site 'Lora' and 'Open Sans'.
+
+- [GitHub](https://github.com/)
+    - Used to host the entire repository for the project.
+
+- [GitPod](https://gitpod.io/workspaces/)
+    - The code editor used to build the entire project.
+
+- [TinyPNG](https://tinypng.com/)
+    -  Used this to compress all the images used on the website to decrease the file size and increase website load speed.
+
+- [Favicon](https://favicon.io/)
+    - Used to generate the websites favicon logo of various sizes for different devices.
+
+- [Am I Responsive](http://ami.responsivedesign.is/)
+    - A tool to check how the website appears and the functionality on various devices. The image at the top of this document was generated from this website.
+
+- [Responsinator](http://www.responsinator.com/)
+    - Similar to [Am I responsive](http://ami.responsivedesign.is/) this is a web based application that allows a website to be checked an a large amount of devices in portrait and 
+    landscape view.
+
+- [Hero Patterns](http://www.heropatterns.com/)
+    - A collection of repeatable SVG background patterns for you to use on your web projects.
+    - Used for the background pattern featured throughout this project.
+
+- [W3C Validator HTML](https://validator.w3.org/) & [W3C Validator CSS](https://jigsaw.w3.org/css-validator/)
+    - Both of these were used to test all the code for the project whilst working and for the finished website to check for valid HTML and CSS.
+
+- [JSHint](https://jshint.com/)
+    - This is a tool used to detect errors or potential problems within Javascript code, it was used to test and validate all Javascript written for this project.
+
+- [CSS Autoprefixer](https://autoprefixer.github.io/)
+    - This was used to add vendor prefixes to the CSS used in the project to increase cross browser compatibility.
+
+- [Pylint](https://www.pylint.org/)
+    - Pylint is a source-code, bug and quality checker for the Python programming language.
+
+- [Jinja](https://jinja.palletsprojects.com/en/3.0.x/)
+    - Jinja is a web template engine for the Python programming language. It allows writing code similar to Python syntax. Then the template is passed data to render the final document.
+    - Jinja templating is built into the [Flask](https://flask.palletsprojects.com/en/2.0.x/) library.
+
+- [PyMongo](https://pymongo.readthedocs.io/en/stable/)
+    - PyMongo is a Python distribution containing tools for working with [MongoDB](https://www.mongodb.com/)
+
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+    - Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries.
+    - Flask also requires the [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) template to work
+
+- [Flask PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)
+    - Allows the bridge between Flask and PyMongo whilst connecting to the required MongoDB database.
+    
