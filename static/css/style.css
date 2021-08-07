@@ -1084,13 +1084,13 @@ input[type="number"] {
     color: var(--accent-color);
 }
 
-.footer-social > i{
+.footer-social > a{
     margin: 0 1.5rem;
     font-size: 3rem;
     transition: all 0.3s ease-in-out;
 }
 
-.footer-social > i:hover {
+.footer-social > a:hover, a:focus {
     transform: scale(1.1);
     cursor: pointer;
     color: var(--accent-color-dark);
@@ -1101,7 +1101,7 @@ input[type="number"] {
     color: var(--accent-color);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .footer-logo {
         order: -1;
     }
