@@ -169,37 +169,63 @@ def profile(username):
 # User edit profile
 @app.route("/edit-profile/<user_id>", methods=["GET", "POST"])
 def edit_profile(user_id):
-    """ Render edit profile page
-    Find the user in the DB
-    If form is submitted retrieve the users input
-    Update the users current info in DB with the new info """
+    """ Check if profile to edit is equal to session user profile
+    If equal render edit profile page
+    Display fields from matching user document
+    Update the users current info in DB with the new info
+    Else block the action and display a message to the user """
 
-    if request.method == "POST":
-        update_profile = {
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password")),
-            "profile_pic": request.form.get("profile_pic")
-        }
-        session["user"] = request.form.get("username").lower()
-        mongo.db.users.update({"_id": ObjectId(user_id)}, update_profile)
-        flash("Profile Updated")
-        return redirect(url_for("profile", username=session['user']))
+    session_user = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    users = list(mongo.db.users.find({"_id": ObjectId(user_id)}))
 
-    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    for user in users:
+        username = user['username']
+
+        if session_user == username:
+            if request.method == "POST":
+                update_profile = {
+                    "username": request.form.get("username").lower(),
+                    "password": generate_password_hash(
+                        request.form.get("password")),
+                    "profile_pic": request.form.get("profile_pic")
+                }
+                session["user"] = request.form.get("username").lower()
+                mongo.db.users.update(
+                    {"_id": ObjectId(user_id)}, update_profile)
+                flash("Profile Updated")
+                return redirect(url_for("profile", username=session['user']))
+        else:
+            flash("You Do Not Have Permission To Perform This Action")
+            return redirect(url_for("profile", username=session['user']))
+
     return render_template("edit-profile.html", user=user)
 
 
 # User Delete Profile
 @app.route("/delete-profile/<user_id>")
 def delete_profile(user_id):
-    """ Delete all events in the DB created by session user
-    Delete user document from DB by retrieving the users ObjectId
+    """ Check if profile to delete is equal to session user profile
+    If equal delete all events in the DB created by session user and
+    delete user document from DB by retrieving the users ObjectId
+    Else block action and display a message to the user
     Remove the deleted user from the session """
 
-    mongo.db.events.delete_many({"created_by": session["user"]})
-    mongo.db.users.delete_one({"_id": ObjectId(user_id)})
-    session.pop("user")
-    return redirect(url_for("home"))
+    session_user = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    users = list(mongo.db.users.find({"_id": ObjectId(user_id)}))
+
+    for user in users:
+        username = user['username']
+
+        if session_user == username:
+            mongo.db.events.delete_many({"created_by": session["user"]})
+            mongo.db.users.delete_one({"_id": ObjectId(user_id)})
+            session.pop("user")
+            return redirect(url_for("home"))
+        else:
+            flash("You Do Not Have Permission To Perform This Action")
+            return redirect(url_for("profile", username=session['user']))
 
 
 # Sign user out
@@ -282,25 +308,38 @@ def update_event_guests(event_id):
 def edit_event(event_id):
     """ Find event object id to update
     Sort category names order
-    Submit updated user event input to matching object id
+    Check if the session user is equal to the created_by DB field
+    If equal Submit updated user event input to matching object id
+    Else block the action and display a message
     Redirect user to profile page """
 
-    if request.method == "POST":
-        submit = {
-            "event_name": request.form.get("event_name"),
-            "location": request.form.get("location"),
-            "category_name": request.form.get("category_name"),
-            "date": request.form.get("date"),
-            "starter": request.form.get("starter"),
-            "main": request.form.get("main"),
-            "dessert": request.form.get("dessert"),
-            "extras": request.form.get("extras"),
-            "counter": int(request.form.get("counter")),
-            "created_by": session["user"]
-        }
-        mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
-        flash("Supper Club Successfully Updated")
-        return redirect(url_for("profile", username=session['user']))
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    events = list(mongo.db.events.find({"_id": ObjectId(event_id)}))
+
+    for event in events:
+        author = event['created_by']
+
+        if username == author:
+            if request.method == "POST":
+                submit = {
+                    "event_name": request.form.get("event_name"),
+                    "location": request.form.get("location"),
+                    "category_name": request.form.get("category_name"),
+                    "date": request.form.get("date"),
+                    "starter": request.form.get("starter"),
+                    "main": request.form.get("main"),
+                    "dessert": request.form.get("dessert"),
+                    "extras": request.form.get("extras"),
+                    "counter": int(request.form.get("counter")),
+                    "created_by": session["user"]
+                }
+                mongo.db.events.update({"_id": ObjectId(event_id)}, submit)
+                flash("Supper Club Successfully Updated")
+                return redirect(url_for("profile", username=session['user']))
+        else:
+            flash("You Do Not Have Permission To Perform This Action")
+            return redirect(url_for("profile", username=session['user']))
 
     event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
@@ -310,11 +349,24 @@ def edit_event(event_id):
 # Delete event
 @app.route("/delete-event/<event_id>")
 def delete_event(event_id):
-    """ Find matching event object id in DB and remove
+    """ Check if the session user is equal to the created_by DB field
+    If equal to find matching event object id in DB and remove
+    Else block the action and display a message to the user
     Return user to profile """
 
-    mongo.db.events.delete_one({"_id": ObjectId(event_id)})
-    flash("Supper Club Successfully Deleted")
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    events = list(mongo.db.events.find({"_id": ObjectId(event_id)}))
+
+    for event in events:
+        author = event['created_by']
+
+        if username == author:
+            mongo.db.events.delete_one({"_id": ObjectId(event_id)})
+            flash("Supper Club Successfully Deleted")
+        else:
+            flash("You Do Not Have Permission To Perform This Action")
+
     return redirect(url_for("profile", username=session['user']))
 
 
