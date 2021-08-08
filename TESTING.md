@@ -207,3 +207,50 @@ Below are two example screenshots of the profile page report for desktop and mob
 - Best practice dropped scores on form pages but this was due to the HTTPS not being secure which is not an issue for this project.
 
 - There were also some slight improvements to be made for accessiblity on various pages, mostly needing to add `aria-labels` to certain elements such as `anchor tags` that do not include text.
+
+## Bugs
+
+Listed below are the major bugs that I encountered whilst building this project and how I resolved them.
+
+1. Adding event listeners to each individual card buttons and on click change the display of the `.card-menu`.
+
+    Initially the issue came from trying to target specific classes etc but since they are dynamically added this wasn’t possible as targeting a specific class wasn’t enough.
+
+	- I then created the forEach loop which is currently there selecting all the buttons and adding an event listener which worked.
+	- Initially I tried to call a function when adding my event listener and doing the necessary logic checks within the called function on the .card-menu class. This worked but opened all the card menus regardless of the button clicked.
+	- I then started to look at using the ‘this’ keyword however this targeted the button itself.
+	- Finally I removed the button container code so the .card-menu was the next element sibling which is how I got to the current solution by performing DOM traversal.
+
+2. When testing the "Supper Club" page on my mobile device I noticed a bug with the `See Menu` button. The bug was that the button needed to be clicked twice in order to display the menu. Once this had been done a single time for each button it would then work as intended with a single click.
+
+    This bug was caused by the function I had written to check and then change the elements styles. The initial line of code causing the bug was written as below;
+
+    `if (item.nextElementSibling.style.display === "none")`
+
+    The reason the double click was needed was because the style being checked for in the CSS wasn't expicitly written, therefore the first click created the above style property meaning the second click successfully displayed the menu as intended. The below code is the fix for the bug which just needed a simple or statement adding.
+
+    `if (item.nextElementSibling.style.display === "" || item.nextElementSibling.style.display === "none")`
+
+3. When adding the functionality for users to join events some logic had to be written to ensure that the user data inputted was correct and matched the format needed e.g the amount of guests needed to be ADDED to the already displayed total amount of guests. 
+
+    The issue I came across with this was adding error messages to the event card in question, which worked correctly. However, each time the user got an error message it would display this as a new message under the current error message. This was due to the loop within my JavaScript function that was needed to access the dynamic content DOM elements.
+
+    This bug was fixed by adding a line of code within a `foreach` statement that removed an error message if there was already one present.
+
+    `item.parentElement.querySelectorAll('.counter-error').forEach(counterError => counterError.remove());`
+
+4. The search box CSS animation that appears on the "Supper Club" page would not work correctly when testing the website on a real life mobile. The reason for this is still unknown as I could not find anything from de-bugging or research. 
+
+    As I still wanted to keep the animation for desktop I added a media query in that meant the search box was always displayed if the users device was less than a certain width.
+
+    ```
+    @media (max-width: 480px) {
+    .btn-search ~ .input-search {
+        width: 18rem;
+        border-radius: 0px;
+        background-color: transparent;
+        border: 1px solid var(--primary-color);
+    }
+    ``` 
+
+[Return to ReadMe file](README.md)
