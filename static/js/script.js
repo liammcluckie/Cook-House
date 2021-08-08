@@ -126,6 +126,12 @@ $(document).ready(function() {
 
 // Emails
 
+/**
+ * Call function to intialise emailjs
+ * Retrieve form data to pass into function with key that matched emailjs template
+ * Validate the users input and display success/error messages accordingly
+ */
+
 (function(){
     emailjs.init("user_9Z5AP7qghYkLu9E9UhaLn");
 })();
