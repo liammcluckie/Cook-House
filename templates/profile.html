@@ -82,8 +82,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card bg-primary-color mb-4">
                         <div class="card-body">
-                            <h4 class="card-title mb-3 text-center"><em class="event-em">{{ event.event_name }}</em></h5>
-                            <h5 class="card-text mb-3"><i class="fas fa-map-marker-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.location }}</em></h6>
+                            <h4 class="card-title mb-3 text-center"><em class="event-em">{{ event.event_name }}</em></h4>
+                            <h5 class="card-text mb-3"><i class="fas fa-map-marker-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.location }}</em></h5>
                             <p class="card-text mb-3"><i class="fas fa-utensils"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.category_name }}</em></p>
                             <p class="card-text mb-3"><i class="far fa-calendar-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.date }}</em></p>
                             <p class="card-text mb-3"><i class="fas fa-signature"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.created_by }}</em></p>
@@ -93,20 +93,20 @@
                                 <!-- Confirm Delete Modal -->
                                 <!-- Code taken from https://getbootstrap.com/ and customised for this project -->
                                 {% if event.counter == 0 %}
-                                    <a href="#" class="delete-btn" data-bs-toggle="modal" data-bs-target="#deleteEvent">
+                                    <a href="#" class="delete-btn" data-bs-toggle="modal" data-bs-target="#deleteEvent-{{ event._id }}">
                                         Delete
                                     </a>
                                 {% else %}
-                                    <a href="#" class="delete-btn" data-bs-toggle="modal" data-bs-target="#errorDeleteEvent">
+                                    <a href="#" class="delete-btn" data-bs-toggle="modal" data-bs-target="#errorDeleteEvent-{{ event._id }}">
                                         Delete
                                     </a>
                                 {% endif %}
                             </div>
-                            <div class="modal fade" id="deleteEvent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="deleteEvent-{{ event._id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel-{{event._id}}" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title uppercase" id="staticBackdropLabel">Delete Event</h4>
+                                            <h4 class="modal-title uppercase" id="staticBackdropLabel-{{event._id}}">Delete Event</h4>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -120,11 +120,11 @@
                                 </div>
                             </div>
                             <!-- Unable to delete modal -->
-                            <div class="modal fade" id="errorDeleteEvent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="errorDeleteEvent-{{ event._id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelTwo-{{ event._id }}" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title uppercase" id="staticBackdropLabel">Unable to Delete Event</h4>
+                                            <h4 class="modal-title uppercase" id="staticBackdropLabelTwo-{{ event._id }}">Unable to Delete Event</h4>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -140,7 +140,7 @@
                             </div>
                             <!-- End of Delete Modal -->
                             <button class="event-menu-btn">See Menu&nbsp;<i class="caret fas fa-angle-down"></i></button>
-                            <div class="card-menu text-center mt-4" id="event-menu">
+                            <div class="card-menu text-center mt-4">
                                 <h4 class="card-title">Menu</h4>
                                 <p>Starter&nbsp;|&nbsp;<em class="event-em">{{ event.starter }}</em></p>
                                 <p>Main&nbsp;|&nbsp;<em class="event-em">{{ event.main }}</em></p>
