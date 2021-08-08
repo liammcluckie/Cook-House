@@ -60,7 +60,7 @@
                 </form>
             </div>
             <!-- End of Search -->
-        <!-- Events card -->
+            <!-- Events card -->
             {% if events|length > 0 %}
             <div class="row">
                 {% for event in events %}
@@ -70,15 +70,15 @@
                                 <!-- Join Event section -->
                                 <form method="POST" class="event-join-form" action="{{ url_for('update_event_guests', event_id=event._id) }}">
                                     <h4 class="card-form-title text-center mt-3 mb-3">Join Club</h4>
-                                    <input type="number" name="counter" class="form-control counter" min="{{ event.counter }}" max="20" value="{{ event.counter }}">
+                                    <input type="number" name="counter" id="counter-{{ event._id }}" class="form-control counter" min="{{ event.counter }}" max="20" value="{{ event.counter }}">
                                     <div class="text-center">
-                                        <label for="counter" class="form-label"></label>
+                                        <label for="counter-{{ event._id }}" class="form-label"></label>
                                         <p class="card-form-subtitle"><em>* Guests currently attending<br>Max guests 20</em></p>
                                         <p class="card-form-text">Please add to the current total the number of guests that would like to attend this club</p>
                                         <button type="button" class="event-join-btn mb-3">Join</button>
                                         <div class="event-confirm-container">
-                                            <label for="join_event_email"></label>
-                                            <input type="email" name="join_event_email" class="join-event-email form-control mb-2" required placeholder="name@gmail.com">
+                                            <label for="join_event_email-{{ event._id }}"></label>
+                                            <input type="email" name="join_event_email" id="join_event_email-{{ event._id }}" class="join-event-email form-control mb-2" required placeholder="name@gmail.com">
                                             <p class="card-form-text">The host will contact you with more details soon</p>
                                             <button type="button" class="event-cancel-btn mb-3">Cancel</button>
                                             <button type="submit" class="event-confirm-btn mb-3">Confirm</button>
@@ -86,13 +86,13 @@
                                     </div>
                                 </form>
                                 <!-- End of Join Event Section -->
-                                <h4 class="card-title mb-3 text-center"><em class="event-em">{{ event.event_name }}</em></h5>
-                                <h5 class="card-text mb-3"><i class="fas fa-map-marker-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.location }}</em></h6>
+                                <h4 class="card-title mb-3 text-center"><em class="event-em">{{ event.event_name }}</em></h4>
+                                <h5 class="card-text mb-3"><i class="fas fa-map-marker-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.location }}</em></h5>
                                 <p class="card-text mb-3"><i class="fas fa-utensils"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.category_name }}</em></p>
                                 <p class="card-text mb-3"><i class="far fa-calendar-alt"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.date }}</em></p>
                                 <p class="card-text mb-3"><i class="fas fa-signature"></i>&nbsp;|&nbsp;<em class="event-em">{{ event.created_by }}</em></p>
                                 <button class="event-menu-btn mb-4">See Menu&nbsp;<i class="caret fas fa-angle-down"></i></button>
-                                <div class="card-menu text-center mt-2" id="event-menu">
+                                <div class="card-menu text-center mt-2">
                                     <h4 class="card-title">Menu</h4>
                                     <p>Starter&nbsp;|&nbsp;<em class="event-em">{{ event.starter }}</em></p>
                                     <p>Main&nbsp;|&nbsp;<em class="event-em">{{ event.main }}</em></p>
