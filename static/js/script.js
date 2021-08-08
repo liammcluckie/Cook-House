@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // Auto update copyright year
 
 document.querySelector("#copyright-year").innerText = new Date().getFullYear();
@@ -29,14 +31,14 @@ document.querySelectorAll('.event-menu-btn').forEach(item => {
  * Change innerHTML of title
  */
 
-counterValue = document.querySelectorAll('.counter').forEach(item => {
+document.querySelectorAll('.counter').forEach(item => {
     const value = item.value;
     if (value === "20") {
         item.previousElementSibling.innerHTML = "Supper Club Full";
         item.style.display = "none";
         item.nextElementSibling.style.display = "none";
     } 
-})
+});
 
 /**
  * Check that user input is greater than current counter value
@@ -46,10 +48,10 @@ counterValue = document.querySelectorAll('.counter').forEach(item => {
  * When Correct value entered display button 
  */
 
- checkCounterValue = document.querySelectorAll('.counter').forEach(item => {
+document.querySelectorAll('.counter').forEach(item => {
     item.addEventListener('blur', () => {
         // Remove error message if one is present
-        item.parentElement.querySelectorAll('.counter-error').forEach(counterError => counterError.remove())
+        item.parentElement.querySelectorAll('.counter-error').forEach(counterError => counterError.remove());
         // Store current value to check against min value which is also current value
         const value = Number(item.value);
         const min = Number(item.min);
@@ -72,9 +74,9 @@ counterValue = document.querySelectorAll('.counter').forEach(item => {
 
 // Display event confirm with email section
 
-joinClub = document.querySelectorAll('.event-join-btn').forEach(item => {
+document.querySelectorAll('.event-join-btn').forEach(item => {
     item.addEventListener('click', () => {
-        item.nextElementSibling.style.display = "block"
+        item.nextElementSibling.style.display = "block";
     });
 });
 
@@ -85,7 +87,7 @@ joinClub = document.querySelectorAll('.event-join-btn').forEach(item => {
  * Rest input with current value in DB
  */
 
-cancelJoinClub = document.querySelectorAll('.event-cancel-btn').forEach(item => {
+document.querySelectorAll('.event-cancel-btn').forEach(item => {
     item.addEventListener('click', () => {
         // Traverse up the DOM to select form element
         const parentFirst = item.parentElement;
@@ -96,7 +98,7 @@ cancelJoinClub = document.querySelectorAll('.event-cancel-btn').forEach(item => 
             // Store and reset counter value
             const counterResetValue = Number(counter.min);
             counter.value = counterResetValue;
-        })
+        });
         // Set confirm join event display
         item.parentElement.style.display = "none";
     });
