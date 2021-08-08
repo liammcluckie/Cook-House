@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     {% block styles %}
     {% endblock %}
     <title>Cook House</title>
@@ -30,9 +28,9 @@
         <!-- Hamburger Icon -->
         <div class="hamburger-menu">
             <label for="check" class="menu">
-                <div class="menu-line menu-line-1"></div>
-                <div class="menu-line menu-line-2"></div>
-                <div class="menu-line menu-line-3"></div>
+                <span class="menu-line menu-line-1"></span>
+                <span class="menu-line menu-line-2"></span>
+                <span class="menu-line menu-line-3"></span>
             </label>
         </div>
         <!-- Full screen navbar menu -->
@@ -86,39 +84,41 @@
         <div class="container-fluid dark-pattern-bg">
             <div class="row">
                 <div class="col-lg-4 col-md-12">
-                    <ul class="footer-nav">
-                        <div class="col-xs-6">
+                    <div class="col-xs-6">
+                        <ul class="footer-nav" id="footer-nav">
                             <li class="footer-nav-item">
                                 <a href="{{ url_for('home') }}" class="footer-nav-link">Home</a>
                             </li>
-                            {% if session.user %}
-                                <li class="footer-nav-item">
-                                    <a href="{{ url_for('profile', username=session['user']) }}" class="footer-nav-link">Profile</a>
-                                </li>
-                                <li class="footer-nav-item">
-                                    <a href="{{ url_for('get_event') }}" class="footer-nav-link">Supper Club</a>
-                                </li>
-                                </div>
-                                <div class="col-xs-6">
-                                    <li class="footer-nav-item">
-                                        <a href="{{ url_for('create_event') }}" class="footer-nav-link">Create Event</a>
-                                    </li>
-                                    <li class="footer-nav-item">
-                                        <a href="{{ url_for('sign_out' )}}" class="footer-nav-link">Sign Out</a>
-                                    </li>
-                            {% else %}
-                                <li class="footer-nav-item">
-                                    <a href="{{ url_for('register') }}" class="footer-nav-link">Register</a>
-                                </li>
-                                <li class="footer-nav-item">
-                                    <a href="{{ url_for('sign_in' )}}" class="footer-nav-link">Sign In</a>
-                                </li>
-                            {% endif %}
+                        {% if session.user %}
+                            <li class="footer-nav-item">
+                                <a href="{{ url_for('profile', username=session['user']) }}" class="footer-nav-link">Profile</a>
+                            </li>
+                            <li class="footer-nav-item">
+                                <a href="{{ url_for('get_event') }}" class="footer-nav-link">Supper Club</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-6">
+                        <ul class="footer-nav">
+                            <li class="footer-nav-item">
+                                <a href="{{ url_for('create_event') }}" class="footer-nav-link">Create Event</a>
+                            </li>
+                            <li class="footer-nav-item">
+                                <a href="{{ url_for('sign_out' )}}" class="footer-nav-link">Sign Out</a>
+                            </li>
+                        {% else %}
+                            <li class="footer-nav-item">
+                                <a href="{{ url_for('register') }}" class="footer-nav-link">Register</a>
+                            </li>
+                            <li class="footer-nav-item">
+                                <a href="{{ url_for('sign_in' )}}" class="footer-nav-link">Sign In</a>
+                            </li>
+                        {% endif %}
                             <li class="footer-nav-item">
                                 <a href="{{ url_for('contact') }}" class="footer-nav-link">Contact</a>
                             </li>
-                        </div>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-12 footer-logo">
                     <img src="../static/images/logo-transparent.png" alt="Cook House Logo">
