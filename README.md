@@ -38,11 +38,13 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 ### 7. [Deployment](#deployment)
 
-#### 7a. GitHub Pages
+#### 7a. Version Control
+
+#### 7b. Heroku 
+
+#### 7c. GitHub
 - Forking the Repository 
 - Cloning the Repository
-
-#### 7b. Heroku
 
 ### 8. [Credits](#credits)
 - Resources
@@ -73,7 +75,7 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
     a. As a first time visitor, I want to immediately and clearly understand the purpose of the website.
 
-    b. As a first time visitor, I want to see a gallery section from other users supper clubs to gain a better understanding of the offering available.
+    b. As a first time visitor, I want to find the UI eye catching, clear and professional looking. Increasing my trust in this website.
 
     c. As a first time visitor, I want to find creating an account a quick, simple and secure process.
 
@@ -81,7 +83,7 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
     a. As a returning visitor, I want to be able to search the website to find supper clubs by location and cuisine.
 
-    b. As a returning visitor, I want to be able to register to attend supper clubs and find out further information through asking the host questions.
+    b. As a returning visitor, I want to be able to register to attend supper clubs.
 
     c. As a returning visitor, I want to be able to see further examples of what other users have used the platform for to enhance understanding.
 
@@ -89,13 +91,11 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 - **Frequent Visitor Goals** 
 
-    a. As a frequent visitor, I want to be able to leave reviews on hosts past supper clubs that I've attended.
+    a. As a frequent visitor, I want to be able to create my own supper club evenings easily whilst adding all the necessary details specific to my event.
 
-    b. As a frequent visitor, I want to be able to create my own supper club evenings easily whilst adding all the necessary details specific to my event.
+    b. As a frequent visitor, I want to be able to manage my own posts either by editing or deleting them.
 
-    c. As a frequent visitor, I want to be able to manage my own posts either by editing or deleting them.
-
-    d. As a frequent visitor, I want using the website to have a good community feel through active and regular user activity.
+    c. As a frequent visitor, I want using the website to have a good community feel through active and regular user activity.
 
 ---
 
@@ -454,8 +454,104 @@ As outlined above the three collections in this database are;
 - [Flask PyMongo](https://flask-pymongo.readthedocs.io/en/latest/)
     - Allows the bridge between Flask and PyMongo whilst connecting to the required MongoDB database.
 
+- [Heroku](https://www.heroku.com)
+    - Heroku is a cloud platform as a service supporting several programming languages including Java, Node.js, Scala, Clojure, Python, PHP, and Go.
+
 ## Testing
 
 Find all information on the testing that has been carried out for this project [here.](TESTING.md)
 
 ## Deployment
+
+### Version Control
+
+- This project was built using [GitPod](https://gitpod.io/workspaces/) as the code editor.
+
+- The repository is hosted on [Github](https://github.com/) with all code being pushed here.
+
+- For the build of this project Git has been used for all version control. This project has also made use of working with remote branches which were assigned using a naming convention primaraliy of `feature/branch-work`, `fix/branch-fix`, `function/branch-function` and `page/branch-page`. Work was completed in this manor to better organise workflow as well as making the possiblity to undo/roll back to certain points in the git history much easier and more effective.
+
+### Heroku
+
+This project is live and automatically deployed to [Heroku](https://www.heroku.com). The following steps outline the necessary steps to set-up and deploy a project that uses Python alongside MongoDB.
+
+- Firstly ensure that your project dependcies and requirements are set up and included in a `requirements.txt` file in the root of your project folder. This can be done by typing the following code into your terminal.
+
+    `pip3 freeze --local > requirements.txt`
+
+- Once this has been done a Procfile must be created as this is what Heroku uses to successfully execute and run the app. This file can be created by typing the following code into your terminal. If there is a blank line added at the end of the file please remove this as it can cause issues with deployment.
+
+    `echo web: python app.py > Procfile`
+
+- Once the above files have been correctly created commit and push these to your GitHub repository.
+
+- Create an account/log in to your Heroku account and select "New App".
+
+    ![Screenshot of the above instructions](deployment/deploy-one.png)
+
+- Supply a project name (this must be unique, lower case, and whitespace replaced with a dash), then select the region closest to you.
+
+    ![Screenshot of the above instructions](deployment/deploy-two.png)
+
+- You will then be directed to the deploy screen for your project. If you choose to deploy by connecting Heroku directly to you CLI then select this option and follow the instructions provided.
+
+- To connect directly through your GitHub account/repository select this option.
+
+    ![Screenshot of the above instructions](deployment/deploy-three.png)
+
+- Check that your Github account is displayed and then search for the repository created that you are connecting Heroku to.
+
+    ![Screenshot of the above instructions](deployment/deploy-four.png)
+
+- Before completing the connection you must input all "Config Vars" under the settings tab in your app dashboard in order for deployment to be successfull. Please note the "SECRET_KEY" value is blocked out for the purposes of this example.
+
+    ![Screenshot of the above instructions](deployment/deploy-five.png)
+
+- Then back under the deploy tab and in the "Automatic deploys" section select "Enable Automatic Deploys" for the master branch.
+
+- Underneath this in the "Manual deploy" section ensure the master branch is the selected branch and click deploy branch.
+    
+    ![Screenshot of the above instructions](deployment/deploy-six.png)
+
+- Heroku will then start the build process and if successful a success message will appead and a link to view the live deployed project.
+
+    ![Screenshot of the above instructions](deployment/deploy-seven.png)
+
+---
+
+### Github
+
+#### Forking the Repository
+
+This project is available to be copied and edited by other users without changing the repository on the original GitHub account. This can be done by forking the entire repository by following these steps, the instructional images contain a black box around the specified area.
+
+1. Log in to [GitHub](https://github.com/) and locate the [repository](https://github.com/liammcluckie/Cook-House).
+
+    - Alternatively you can locate the repository by searching liammcluckie/Discover-Aotearoa on [GitHub](https://github.com/).
+
+2. At the top of the repository page, below your own account icon you will find three buttons one of these is labelled 'Fork' click here.
+
+    ![Screenshot of the 'fork' button found in Github](deployment/fork.png)
+
+3. You will now have a copy of the entire repository in your own GitHub account to edit and make changes too.
+
+4. If any suggestions, improvements or changes have been made that you would wish to share to improve the original site you can then submit a pull request to the project owner, details on how to do this can be found [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
+
+#### Making a Local Clone
+
+1. Log in to [GitHub](https://github.com/) and locate the [repository](https://github.com/liammcluckie/Cook-House).
+
+    - Alternatively you can locate the repository by searching liammcluckie/Discover-Aotearoa on [GitHub](https://github.com/).
+
+2. Located directly above the repository files and to the left of the green 'GitPod' button is a 'Code' button click on this.
+
+    ![Screenshot example of following the above step](deployment/clone.png)
+
+4. Next open your own terminal in GitPod and change the current directory to where you want the cloned directory to be sent to.
+
+5. In the terminal type `git clone` and then paste the URL copied from the original repository and press enter. This will create your local clone.
+
+6. If you use GitHub desktop the instructions on how to clone to this can be found [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop).
+
+
+
