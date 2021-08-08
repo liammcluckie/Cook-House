@@ -21,6 +21,11 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Please see README.md document for references to code used
+#  within this file that have been taken and customised for 
+# this project from Code Instututes walkthrough Task Manager Project
+
+
 # Homepage
 @app.route("/")
 @app.route("/home")
