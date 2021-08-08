@@ -49,9 +49,7 @@ Cook House is a website that focuses on bringing strangers and friends together 
 ### 8. [Credits](#credits)
 - Resources
 - Code 
-- Content
 - Media
-- Acknowledgements
 
 ## UX
 
@@ -553,5 +551,73 @@ This project is available to be copied and edited by other users without changin
 
 6. If you use GitHub desktop the instructions on how to clone to this can be found [here](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop).
 
+## Credits
+
+### Resources
 
 
+- [Unsplash](https://unsplash.com/)
+    - All of the images used for this project were taken from here with the owners permission.
+
+- [Stack Overflow](https://stackoverflow.com/)
+    - This was used to help troubleshoot and overcome many of the problems and bugs encountered whilst building this project.
+
+- [w3 Schools](https://www.w3schools.com/)
+    - An educational website containing example code and documentation on all syntax for web development, another paramount tool for problem solving during this project.
+
+- [CSS Tricks](https://css-tricks.com/)
+    - Used whilst trying to overcome any problems and achieve certain outcomes that at that time I did not have the knowledge on how to do, as well as offer certain CSS design inspiration.
+
+---
+
+### Code
+
+Listed below is any code that was taken from external resources and customised for this project, this is also referenced in the specific webpage files.
+
+- [Contact Icon Animation](https://www.florin-pop.com/blog/2019/03/css-pulse-effect/)
+    - The code found above was used to achieve the keyframes pulse effect on the arrow icon.
+
+- [Search Bar Animation](https://codepen.io/ahmadbassamemran/pen/rNjMXqg)
+    - The code found above was taken and customised to better suit the UI of this project, however, the functionality is similar.
+
+- [Cancel Animation](https://codepen.io/rsbear/pen/ZpXJVp)
+    - Used at various points within the project for added effect. A small cancel button animation effect then actions when the user hovers.
+
+- [Profile Image URL Regex](https://stackoverflow.com/questions/18568244/url-validation-regex-url-just-valid-with-http)
+    - The above code is added to the `pattern` attribute on the profile picture url input form to ensure that the user adds a valid url in order for the image to be displayed correctly.
+
+- [Main Menu Overlay Effect](https://www.udemy.com/course/sass-the-complete-sass-course-css-preprocessor/)
+    - The main menu overlay, animation and hamburger animation came from a course I had personally taken focusing on the use of Sass. I used the code from this project and customised it to better suit the UI of this one.
+
+- [Python Functions](https://codeinstitute.net/)
+    - The following Python functions were taken and customised heavily for this project from the [Code Institute](https://codeinstitute.net/) walk through project title "Task Manager".
+
+        - `get_event`
+        - `search`
+        - `register`
+        - `sign_in`
+        - `sign_out`
+        - `profile`
+        - `create_event`
+        - `edit_event`
+        - `delete_event`
+
+---
+
+### Media
+
+**Logo**
+
+- The logo for this website was generated using [Hatchful](https://hatchful.shopify.com/). This works by inputting the name of the brand/business and by choosing certain style preferences, this then produces a selection of different logo ideas.
+
+***Images**
+
+- [Landing Page Hero Image by Scott Warman](https://unsplash.com/@scottiewarman)
+
+- [Landing Page About Section First Image by Valiant Made](https://unsplash.com/@valiantmade)
+
+- [Landing Page About Section Second Image by Kelsey Chance](https://unsplash.com/@kchance8)
+
+- [Landing Page About Section Third Image by Stefan Vladimirov](https://unsplash.com/@vladimirov)
+
+- [Supper Club Page Hero Image by Valiant Made](https://unsplash.com/@valiantmade)
