@@ -51,3 +51,136 @@ Warnings Present:
 - The two instances of the same undefined variable `emailjs` is caused from the code required to call and run the Emailjs send mail function. Therefore this warning can be ignore and no changes were made.
 
 - The undefined variable `$` is caused from the use of the Javascript library JQuery that JSHint does not recognise. Therefore this warning can be ignored and no changed were made.
+
+## User Story Testing
+
+### User Goals
+
+- *"As a user, I want to be able to find using the websites functionality simple with clear instructions."*
+
+    - All pages include an informative introduction header if needed.
+
+    ![Screenshot of Create Event page intro](testing/user-testing/event-intro.png)
+
+    ![Screenshot of 'What are supper clubs' intro](testing/user-testing/supper-club-intro.png)
+
+    - User input fields contain clear instructions as to what the user needs to input to successfully proceed or complete the task.
+
+    ![Screenshot of a user incorrectly inputting data](testing/user-testing/join-event.png)
+
+    ![Screenshot of the user register page form](testing/user-testing/register.png)
+
+    ![Screenshot of a contact form error message](testing/user-testing/error-message.png)
+
+- *"As a user, I want to have full control of my account following computer programming CRUD (create, read, update & delete) operations."*
+
+- *"As a user, I want to have full control of my created events following computer programming CRUD (create, read, update & delete) operations."*
+
+    - This project has implemented computer programming CRUD functionality for any data that a user adds. This includes all aspects of the user created event as well as their profile details.
+
+    ![Screenshot of user profile crud options](testing/user-testing/profile-crud.png)
+
+    ![Screenshot of user edit profile](testing/user-testing/edit-profile.png)
+
+    ![Screenshot of user delete profile](testing/user-testing/delete-profile.png)
+
+    ![Screenshot of user event crud options](testing/user-testing/event-crud.png)
+
+    ![Screenshot of user edit event](testing/user-testing/edit-event.png)
+
+    ![Screenshot of user delete event](testing/user-testing/delete-event.png)
+
+---
+
+### First Time Visitor Goals
+
+- *"As a first time visitor, I want to immediately and clearly understand the purpose of the website."*
+
+    - This is clearly explained in detail on the landing page through related imagery and content. For this project I chose to only include this information on the landing page with no other content as to not overload the user with information.
+
+    - Due to this there is a higher chance of a first time visitor not being distracted by other content, therefore thoroughly understanding the purpose of this website.
+
+    ![Screenshot of about us section title](testing/user-testing/about-events.png)
+
+    ![Screenshot of about us section title](testing/user-testing/about-hosts.png)
+
+    ![Screenshot of about us section title](testing/user-testing/about-guests.png)
+
+- *"As a first time visitor, I want to find creating an account a quick, simple and secure process."*
+
+    - All navigation links are displayed in a top level nav bar as well as in the footer. This increases the UX of the website as including links in the footer as well as a fixed overlay nav menu means the user does not need to scroll in order to navigate away from their current location.
+
+    - Depending on the users session status a CTA button is displayed on the landing page. If the user is not signed in the button will display *"Register"* therefore meaning a first time user can instantly sign up with one click.
+
+    ![Screenshot of CTA register button](testing/user-testing/cta-register.png)
+
+---
+
+### Returning Visitor Goals
+
+- *"As a returning visitor, I want to be able to search the website to find supper clubs by location and cuisine."*
+
+    - Displayed at the top level of the "Supper Club" page is a search icon that when clicked displays a search bar.
+
+    - The placeholder text informs the user of the content they can search by.
+
+    ![Screenshot of events search bar](testing/user-testing/search-bar.png)
+
+- *"As a returning visitor, I want to be able to register to attend supper clubs."*
+
+    - This functionality is possible through using a counter system. When the user creates the event a counter with the integer `0` is assigned to the event in the DB. The user can then add the amount of guests they would like to attend a specific event click to join using their email.
+
+    - Their email is then assigned to said event if successful. For future builds I would like to set up a function that sends all guests signed up to an event a follow up email.
+
+    ![Screenshot of a user signing up for an event](testing/user-testing/join-event-email.png)
+
+    ![Screenshot of a user signing up for an event success message](testing/user-testing/join-success.png)
+
+- *"As a returning visitor, I want to be able to contact the websites admin if I have any issues or questions."*
+
+    - This project has a generic contact form for users to use for any type of enquiry. The link for this can be found in the fixed overlay main navigation as well as the footer.
+
+    - There are also two other instances of displaying the contact page link to the user. This happens if the user tries to delete an event that has guests signed up for.
+
+        - The reason for this is so that Admin can contact the guests in question prior to the events being deleted to ensure all users are aware and have an overall excellant experience.
+
+    ![Screenshot of a unable to delete event modal](testing/user-testing/delete-event-error.png)
+
+---
+
+### Frequent Visitor Goals
+
+- *"As a frequent visitor, I want to be able to create my own supper club evenings easily whilst adding all the necessary details specific to my event."*
+
+    - A thorough and well planned event form has been created that allows users to add all relevent information for this type of event. It also gives the user an option to add any additional information they would like to through an "Extras" text area.
+
+    ![Screenshot of create event form](testing/user-testing/create-event.png)
+
+- *"As a frequent visitor, I want to be able to manage my own posts either by editing or deleting them."*
+
+    - This is achieved by including a users "Profile Page" that includes all the expected content such as the users created events. This is the location where all information can be edited/deleted as the user chooses.
+
+- *"As a frequent visitor, I want using the website to have a good community feel through active and regular user activity."*
+
+    - Achieving this initially has been done through creating a good amount of initial events through certain admin users. To continue this there have been CTA buttons placed throughout the website to prompt users to keep creating events, or if they haven't already to start creating events.
+
+    ![Screenshot of frequent user event cta](testing/user-testing/new-event-cta.png)
+
+    ![Screenshot of new user event cta](testing/user-testing/first-event-cta.png)
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+
+
+
