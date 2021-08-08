@@ -403,8 +403,8 @@ li {
 
 .hero-right {
     background: url("../images/home-hero.jpg") no-repeat right;
-    background-size: contain;
-    background-attachment: fixed;
+    background-size: cover;
+    background-attachment: scroll;
 }
 
 @media (max-width: 991px) {
@@ -415,9 +415,6 @@ li {
     .hero-right {
         height: 50vh;
         background-position: center;
-        background-size: cover;
-        background-attachment: scroll;
-
     }
 
     .column-reverse {
@@ -531,22 +528,22 @@ li {
 
 .about-image-first {
     background: url("../images/about-image-first.jpg") no-repeat right;
-    background-size: contain;
-    background-attachment: fixed;
+    background-size: cover;
+    background-attachment: scroll;
     height: 100vh;
 }
 
 .about-image-second {
     background: url("../images/about-image-second.jpg") no-repeat left;
-    background-size: contain;
-    background-attachment: fixed;
+    background-size: cover;
+    background-attachment: scroll;
     height: 100vh;
 }
 
 .about-image-third {
     background: url("../images/about-image-third.jpg") no-repeat right;
-    background-size: contain;
-    background-attachment: fixed;
+    background-size: cover;
+    background-attachment: scroll;
     height: 100vh;
 }
 
@@ -561,9 +558,7 @@ li {
     .about-image-first,
     .about-image-second,
     .about-image-third {
-        background-attachment: scroll;
         background-position: center;
-        background-size: cover;
         height: 50vh;
     }
 
@@ -790,8 +785,8 @@ input[type="number"] {
     height: 70vh;
     background: url("../images/club-hero.jpg") no-repeat;
     background-position: right;
-    background-attachment: fixed;
-    background-size: contain;
+    background-attachment: scroll;
+    background-size: cover;
 }
 
 .delete-btn:hover,
@@ -845,12 +840,6 @@ input[type="number"] {
     border: 1px solid var(--accent-color-dark);
     background-color: var(--accent-color-dark);
     color: var(--secondary-color);
-}
-
-@media (max-width: 960px) {
-    .club-hero {
-        background-attachment: scroll;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1473,8 +1462,6 @@ input[type="number"] {
         }
 
         .hero-right {
-            background-attachment: scroll;
-            background-size: cover;
             background-position: center;
             height: 50vh;
             width: 100%;
@@ -1524,9 +1511,7 @@ input[type="number"] {
         .about-image-first,
         .about-image-second,
         .about-image-third {
-            background-attachment: scroll;
             background-position: center;
-            background-size: cover;
             height: 50vh;
             width: 100%
         }
@@ -1544,8 +1529,6 @@ input[type="number"] {
         /* Supper Club */
 
         .club-hero {
-            background-attachment: scroll;
-            background-size: cover;
             height: 50vh;
             width: 100%;
         }
