@@ -15,9 +15,9 @@
     <section>
         <div class="container-fluid light-pattern-bg align-items-center">
             <!-- Flash Messages -->
-            <div>
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div>
                         {% for message in messages %}
                             <div class="row">
                                 <div class="col text-center">
@@ -25,9 +25,9 @@
                                 </div>
                             </div>
                         {% endfor %}
-                    {% endif %}
-                {% endwith %}
-            </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
             <!-- End of Flash Messages -->
             <div class="row">
                 <div class="col-lg-4 col-md-8 col-sm-12 center">
