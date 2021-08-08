@@ -16,9 +16,7 @@
 
 ### 4. [Google Lighthouse Testing](#google-lighthouse-testing)
 
-### 5. [Further Testing](#further-testing)
-
-### 6. [Bugs](#bugs)
+### 5. [Bugs](#bugs)
 
 ## Code Validation
 
@@ -168,19 +166,44 @@ Warnings Present:
 
     ![Screenshot of new user event cta](testing/user-testing/first-event-cta.png)
 
+## Browser Compatibility and Device Responsiveness Testing
 
+- This project was tested throughout the build on various device types and sizes using Google Chrome Developer Tools as well as other web based applications mentioned in the ReadMe document such as [Am I Responsive](http://ami.responsivedesign.is/) and [Responsinator](http://www.responsinator.com/) to ensure fluid and error free responsive design. screenshots from this testing can be viewed [here.](testing/responsive-test/device-test.pdf) The deployed website was also continually tested on my own personal device of an iPhone 11 as well as an iPhone 12 mini to ensure the project worked as intended see screenshots below.
 
+*INSERT IMAGES OF DEVICES HERE*
 
+Once the project was completed a cross browser compatibility test on five different browsers was carried out using a web based application [BrowserStack](https://www.browserstack.com/). I also checked this testing by downloading the browsers that were available to double check on the testing.
 
+This table in the pdf below shows how all the projects pages responded on different device screen sizes and being used on various browsers, the grading key is as follows;
 
-    
+Good - Appears exactly as intended aesthetically and functionally
 
+OK - Appears as intended functionally but some aesthetics may have slightly altered
 
+Poor - Website still functions correctly but key elements do not appear as intended
 
+[See file here.](testing/cross-browser-test.pdf)
 
+- Referenced in the above document is a compatablity bug found in Safari due to the css property `background-attachment: fixed` not being fully supported. This was being used to create a parallax effect when scrolling, it has now been removed but below shows how this originally worked.
 
-    
+[Video of original desired parallax effect viewing in Google Chromw](https://www.youtube.com/watch?v=Xhi7vaV7i70&ab_channel=LiamMcLuckie)
 
+## Google Lighthouse Testing
 
+Once the main build of this project was completed a test for mobile and web was carried out for all pages using Google Developer Tools Lighthouse application. Using the report I then went through the project and made as many recommended alterations as possible to improve the website inline with the areas that lighthouse focuses on.
 
+Below are two example screenshots of the profile page report for desktop and mobile. To see reports for all pages in desktop click [here](testing/lighthouse-test/lighthouse-desktop.pdf) and for all page reports on mobile click [here](testing/lighthouse-test/lighthouse-mobile.pdf).
 
+**Profile Page Desktop**
+
+![Screenshot of profile page tested with Google Lighthouse in Desktop](testing/lighthouse-test/desktop-profile.png)
+
+**Profile Page Mobile**
+
+![Screenshot of profile page tested with Google Lighthouse in Mobile](testing/lighthouse-test/mobile-profile.png)
+
+- Overall there were no major changes needed from the outcome of the testing. For mobile testing the performance dropped slightly due to load time however this could only really be dramatically increased through less code which is not possible.
+
+- Best practice dropped scores on form pages but this was due to the HTTPS not being secure which is not an issue for this project.
+
+- There were also some slight improvements to be made for accessiblity on various pages, mostly needing to add `aria-labels` to certain elements such as `anchor tags` that do not include text.
