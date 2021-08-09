@@ -170,7 +170,14 @@ Warnings Present:
 
 - This project was tested throughout the build on various device types and sizes using Google Chrome Developer Tools as well as other web based applications mentioned in the ReadMe document such as [Am I Responsive](http://ami.responsivedesign.is/) and [Responsinator](http://www.responsinator.com/) to ensure fluid and error free responsive design. screenshots from this testing can be viewed [here.](testing/responsive-test/device-test.pdf) The deployed website was also continually tested on my own personal device of an iPhone 11 as well as an iPhone 12 mini to ensure the project worked as intended see screenshots below.
 
-*INSERT IMAGES OF DEVICES HERE*
+    **Iphone 12 Mini**
+
+    ![Image of live site viewed on a Iphone 12 Mini](testing/responsive-test/iphone-12mini.JPG)
+
+    **Iphone 11**
+
+    ![Image of live site viewed on a Iphone 11](testing/responsive-test/iphone-11.jpg)
+
 
 Once the project was completed a cross browser compatibility test on five different browsers was carried out using a web based application [BrowserStack](https://www.browserstack.com/). I also checked this testing by downloading the browsers that were available to double check on the testing.
 
