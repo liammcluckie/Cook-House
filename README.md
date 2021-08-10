@@ -606,7 +606,7 @@ Listed below is any code that was taken from external resources and customised f
 
 - The logo for this website was generated using [Hatchful](https://hatchful.shopify.com/). This works by inputting the name of the brand/business and by choosing certain style preferences, this then produces a selection of different logo ideas.
 
-***Images**
+**Images**
 
 - [Landing Page Hero Image by Scott Warman](https://unsplash.com/@scottiewarman)
 
