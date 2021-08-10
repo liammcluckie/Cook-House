@@ -6,7 +6,7 @@
 
 ## Overview 
 
-Cook House is a website that focuses on bringing strangers and friends together through the simple art of food, drink and conversation. The purpose of this website is for like minded users that either want to attend or host private supper clubs in their own homes to be able to do so through this platform. Users will be able to create an event in order to host their own evening which will be open invitation (with limited numbers) for any other members of the website. The author of the event will be able to choose the cuisine, dress code and other optional extras. Users will also be able to leave reviews on hosts profile as well as ask further questions on the event post. This project will have a strong focus on database creation and usage. 
+Cook House is a website that focuses on bringing strangers and friends together through the simplicity of food, drink and conversation. The purpose of this website is for like minded users that wish to either attend, or host private supper clubs situated in their own homes to be possible through using this platform. Users will be able to create an event in order to host their own evening which will be an open invitation (with limited numbers) for any other members of the website. The creator of the event will be able to choose the cuisine, menu and any other optional extras. This project will have a strong focus on database creation, security and usage through CRUD. 
 
 ## Table of Contents
 
@@ -101,9 +101,9 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 #### Strategy
 
-- The main goal of this website is to convert visitors into registered and active users. Due to the nature of this website there will be a lot of content only available to registered users, such as events and host information. This means that in order to convert a visitor the landing page has to draw them in, which will be done using a bold and fun colour palette as well as aesthetically pleasing imagery and imagery displaying the enjoyment of users from this website.
+- The main goal of this website is to convert visitors into registered and active users. Due to the nature of this website there will be a lot of content only available to registered users, such as events and host information. This means that in order to convert a visitor the landing page has to draw them in, which will be done using a bold and fun colour palette as well as aesthetically pleasing imagery displaying the enjoyment of users from this website.
 
-- Private supper clubs are not always a common and well known activity and historically they have always been shrouded in secrecy. To further increase the chance of converting visitors into users there will need to be a clear and well detailed about section. This should include a brief history explaining what a supper club is and a short introduction of how this website is used for these events. This section needs to be short as to not overwhelm users, and also fit into the rest of the websites aesthetics complimenting the imagery and design of the landing page.
+- Private supper clubs are not always a common and well known activity, and historically they have always been shrouded in secrecy. To further increase the chance of converting visitors into users there will need to be a clear and well detailed about section. This should include a brief history explaining what a supper club is and a short introduction of how this website is used for these events. This section needs to be short as to not overwhelm users, and also fit into the rest of the websites aesthetics complimenting the imagery and design of the landing page.
 
 - The main functionality of this website and the ideal steps a new user would take are the following;
 
@@ -121,7 +121,7 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
     - Post their own supper club evening event.
 
-    - Remain a regular and active user, attending and hosting supper clubs as well as leaving reviews.
+    - Remain a regular and active user, attending and hosting supper.
 
     This will all be achieved through creating a clear and strong UI focusing on well structured content hierarchy. By doing this the website without necessarily giving the user physical instructions will lead the user to all the above steps.
 
@@ -137,8 +137,6 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
     - About section included on the landing page.
 
-    - Gallery section included on the landing page using images from previous events.
-
     - Validated and functioning contact form using [Emailjs.](https://www.emailjs.com/)
 
     - Allow users to create and manage their own account.
@@ -147,12 +145,10 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
     - The ability for logged in users to search the websites database for events by location, name and cuisine.
 
-    - The website will include a home page, register & sign in page, contact page, supper club page, and create event page.
-        - The supper club and create event page will be hidden to any visitors not signed into an account.
+    - The website will include pages such as home, register & sign in, profile, contact, supper club, and create event.
+        - The supper club, profile and create event page will be hidden to any visitors not signed into an account.
 
     - A form for users to fill out in order to create a supper club event which will then be listed on the websites supper club page.
-
-    - For users to be able to leave reviews/comments on supper club events.
 
 - **The features and content in the initial design plan that are of a lower priority and may not be including in this build are;**
 
@@ -165,6 +161,8 @@ Cook House is a website that focuses on bringing strangers and friends together 
     - The ability for users to customise and add further information to their profile page such as preferences, images, bio descriptions etc.
 
     - A featured users section that includes top rated/most active and past events they have hosted.
+
+    - A gallery section that uses images and content left via event reviews.
 
 ---
 
@@ -184,11 +182,9 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
     - Firstly a combination of text content and images will be used to convey the about section.
 
-    - Then the gallery will be a simple layout of two rows and three columns wide, on large screens, with a hover effect that displays information regarding the image using a coloured overlay.
-
     - The first element of the supper club page will be a search bar to allow users to find specific events.
 
-    - Where the supper club events are listed the layout will be cards with interactive elements such as buttons, and input comment areas.
+    - Where the supper club events are listed the layout will be cards with interactive elements such as buttons, and input fields.
 
     - The pages specific to using forms will have minimal to none additional content in order for the forms to be the main focus point.
 
@@ -216,19 +212,19 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 ### Colour Scheme
 
-- The colour scheme for this website contains three colours a main, secondary and accent colour. The primary and secondary colours are being used as they feature in the logo, and the accent colour which fits into the colour palette will be used as a contrast colour. These colours have been chosen as they create an effect of calming, fun/happy but will still look sleek, stylish and professional.
+- The colour scheme for this website contains three colours a main, secondary and accent colour, there will also be darker tones of the primary and secondary colours to improve accessibility. The primary and secondary colours are being used as they feature in the logo, and the accent colour which fits into the colour palette will be used as a contrast colour. These colours have been chosen as they create an effect of calming, fun/happy but will still look sleek, stylish and professional.
 
 - Blue Sapphire (#075570) - Primary Colour - This very dark blue shade is the background colour of the websites logo and will be used throughout for certain background colours such as the navigation menu, and button colours. Blue which naturally has a calming effect, however, using this much darker tone creates a stylish, modern and luxurious effect.
 
-- Blue Sapphire Dark (#06445a) - Primary Colour Dark - A slightly darkened version of the primary colour used throughout the site to help with accessability and readablity where needed.
+- Blue Sapphire Dark (#06445a) - Primary Colour Dark - A slightly darkened version of the primary colour used throughout the site to help with accessability and readability where needed.
 
 - Golden Tainoi (#ffc145) - Secondary Colour - This colour is used for the outline of the logo and is a striking contrast the the Blue Sapphire primary colour, that pops out and is extremely aesthetically pleasing. Described as a light orange colour with yellow tones, this colour creates an emotion of happiness and joy something that goes hand in hand with the main purpose of supper clubs which is to bring people together.
 
-- Golden Tainoi Dark (#cc9a37) - Secondary Colour Dark - A slightly darkened version of the secondary colour used throughout the site to help with accessability and readablity where needed.
+- Golden Tainoi Dark (#cc9a37) - Secondary Colour Dark - A slightly darkened version of the secondary colour used throughout the site to help with accessability and readability where needed.
 
 - Sugar Cane (#f1f1e6) - Accent Colour - This colour will feature throughout the project as a neutral contrast colour to break up the bold colours of the primary and secondary. It will also be used as a background colour when the Blue Sapphire colour really needs to stand out to the user. Described as a light greyish yellow this colour fits in with the palette perfectly, it will never draw attention away from main colours and does exactly what an accent colour needs to.
 
-- Soft Red (#f25c66) - Cancel/Delete Colour - Used as a warning indicator for the user whenever they are making ireversible changes such as deleting their account/events, or to display cancelling an action such as editing their profile/event.
+- Soft Red (#f25c66) - Cancel/Delete Colour - Used as a warning indicator for the user whenever they are making irreversible changes such as deleting their account/events, or to display cancelling an action such as editing their profile/event.
 
 ### Typography
 
@@ -256,7 +252,7 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 - The main schema used in this project is ObjectId.
     - The objectId schema type provides 12-bit MongoDB-specific unique values that can be used as identifiers for objects.
-    - This assigned to any document added to a collection in the database in order to manipulate it at a later date by searching the database by using the ObjectId.
+    - This is assigned to any document added to a collection in the database in order to manipulate it at a later date by searching the database by using the ObjectId.
 
 - Below is the database diagram plan used for structuring the database in this project. 
 
@@ -264,7 +260,7 @@ Cook House is a website that focuses on bringing strangers and friends together 
 
 As outlined above the three collections in this database are;
 
-- Events - This is the most important as the entire platfrom is based around this functionality. 
+- Events - This is the most important as the entire platform is based around this functionality. 
     
     - Users create an event which is added into the database which stores the author in the event which is then related to the 'Users' collection.
 
@@ -274,7 +270,7 @@ As outlined above the three collections in this database are;
 
 - Categories - Here all the categories available for the user are stored, these are displayed on the front end when creating/editing an event. Most importantly though this collection is used for searching through created events for specific categories.
 
-- Users - All successful user registrations are stored here with passwords being securly stored by using Pythons Werkzeug Wecurity password hash. This generates a random character string that disguises the users password in the database, without affecting the password that they registered with.
+- Users - All successful user registrations are stored here with passwords being securely stored by using Pythons Werkzeug Security password hash. This generates a random character string that disguises the users password in the database, without affecting the password that they registered with.
 
 ## Features 
 
@@ -286,11 +282,11 @@ As outlined above the three collections in this database are;
 
 - Success or error messages that will display depending on if the user correctly or incorrectly uses the forms on the website.
 
-- Custom error pages that cover all main errors
+- Custom error pages that cover all main errors.
 
 - Animated navigation menu button and screen.
 
-- Copyright date in all footers that autmoatically updates each year.
+- Copyright date in all footers that automatically updates each year.
 
 ---
 
@@ -356,16 +352,16 @@ As outlined above the three collections in this database are;
 
 - Include a form of map api in order to display a visual location of each event to the user.
 
-- Review section that allows users to upload reviews of Hosts to their profile along with images of the event happening. These images would then be displayed on a gallery section on the landing page.
+- Review section that allows users to upload reviews of hosts to their profile along with images of the event. These images would then be displayed on a gallery section on the landing page.
     - The initial project plan included this feature however it fell outside of the scope for the current build.
 
 - Add pagination to the supper club and profile page so that if the events exceeded a certain total the events would be displayed on a new page and pagination would be displayed.
 
 - Further features added to the search feature to further refine the specifics of the users search.
 
-- The abilty to upload images through a direct file instead or a URL using [Cloudinary](https://cloudinary.com/) to host the images.
+- The ability to upload images through a direct file instead or a URL using [Cloudinary](https://cloudinary.com/) to host the images.
 
-- Add a blog page that includes a newsletter sign up, this would feature specific events that had taken place.
+- Add a blog page that includes a newsletter sign up. This would feature specific events that had taken place.
 
 ## Technologies Used
 
@@ -465,15 +461,15 @@ Find all information on the testing that has been carried out for this project [
 
 - This project was built using [GitPod](https://gitpod.io/workspaces/) as the code editor.
 
-- The repository is hosted on [Github](https://github.com/) with all code being pushed here.
+- The repository is hosted on [Github](https://github.com/) with all code being stored here.
 
-- For the build of this project Git has been used for all version control. This project has also made use of working with remote branches which were assigned using a naming convention primaraliy of `feature/branch-work`, `fix/branch-fix`, `function/branch-function` and `page/branch-page`. Work was completed in this manor to better organise workflow as well as making the possiblity to undo/roll back to certain points in the git history much easier and more effective.
+- For the build of this project Git has been used for all version control. This project has also made use of working with remote branches which were assigned using a naming convention primarily of `feature/branch-work`, `fix/branch-fix`, `function/branch-function` and `page/branch-page`. Work was completed in this manor to better organise workflow as well as making the possibility to undo/roll back to certain points in the git history much easier and more effective.
 
 ### Heroku
 
 This project is live and automatically deployed to [Heroku](https://www.heroku.com). The following steps outline the necessary steps to set-up and deploy a project that uses Python alongside MongoDB.
 
-- Firstly ensure that your project dependcies and requirements are set up and included in a `requirements.txt` file in the root of your project folder. This can be done by typing the following code into your terminal.
+- Firstly ensure that your project dependencies and requirements are set up and included in a `requirements.txt` file in the root of your project folder. This can be done by typing the following code into your terminal.
 
     `pip3 freeze --local > requirements.txt`
 
@@ -501,7 +497,7 @@ This project is live and automatically deployed to [Heroku](https://www.heroku.c
 
     ![Screenshot of the above instructions](deployment/deploy-four.png)
 
-- Before completing the connection you must input all "Config Vars" under the settings tab in your app dashboard in order for deployment to be successfull. Please note the "SECRET_KEY" value is blocked out for the purposes of this example.
+- Before completing the connection you must input all "Config Vars" under the settings tab in your app dashboard in order for deployment to be successful. Please note the "SECRET_KEY" value is blocked out for the purposes of this example.
 
     ![Screenshot of the above instructions](deployment/deploy-five.png)
 
@@ -511,7 +507,7 @@ This project is live and automatically deployed to [Heroku](https://www.heroku.c
     
     ![Screenshot of the above instructions](deployment/deploy-six.png)
 
-- Heroku will then start the build process and if successful a success message will appead and a link to view the live deployed project.
+- Heroku will then start the build process and if successful a success message will appear and a link to view the live deployed project.
 
     ![Screenshot of the above instructions](deployment/deploy-seven.png)
 
@@ -525,7 +521,7 @@ This project is available to be copied and edited by other users without changin
 
 1. Log in to [GitHub](https://github.com/) and locate the [repository](https://github.com/liammcluckie/Cook-House).
 
-    - Alternatively you can locate the repository by searching liammcluckie/Discover-Aotearoa on [GitHub](https://github.com/).
+    - Alternatively you can locate the repository by searching liammcluckie/Cook-House on [GitHub](https://github.com/).
 
 2. At the top of the repository page, below your own account icon you will find three buttons one of these is labelled 'Fork' click here.
 
@@ -533,13 +529,13 @@ This project is available to be copied and edited by other users without changin
 
 3. You will now have a copy of the entire repository in your own GitHub account to edit and make changes too.
 
-4. If any suggestions, improvements or changes have been made that you would wish to share to improve the original site you can then submit a pull request to the project owner, details on how to do this can be found [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
+4. If any suggestions, improvements or changes have been made that you would wish to share to improve the original site you can then submit a pull request to myself, details on how to do this can be found [here](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork).
 
 #### Making a Local Clone
 
 1. Log in to [GitHub](https://github.com/) and locate the [repository](https://github.com/liammcluckie/Cook-House).
 
-    - Alternatively you can locate the repository by searching liammcluckie/Discover-Aotearoa on [GitHub](https://github.com/).
+    - Alternatively you can locate the repository by searching liammcluckie/Cook-House on [GitHub](https://github.com/).
 
 2. Located directly above the repository files and to the left of the green 'GitPod' button is a 'Code' button click on this.
 
@@ -575,7 +571,7 @@ This project is available to be copied and edited by other users without changin
 Listed below is any code that was taken from external resources and customised for this project, this is also referenced in the specific webpage files.
 
 - [Contact Icon Animation](https://www.florin-pop.com/blog/2019/03/css-pulse-effect/)
-    - The code found above was used to achieve the keyframes pulse effect on the arrow icon.
+    - The code found above was used to achieve the key-frames pulse effect on the arrow icon.
 
 - [Search Bar Animation](https://codepen.io/ahmadbassamemran/pen/rNjMXqg)
     - The code found above was taken and customised to better suit the UI of this project, however, the functionality is similar.
@@ -590,17 +586,17 @@ Listed below is any code that was taken from external resources and customised f
     - The main menu overlay, animation and hamburger animation came from a course I had personally taken focusing on the use of Sass. I used the code from this project and customised it to better suit the UI of this one.
 
 - [Python Functions](https://codeinstitute.net/)
-    - The following Python functions were taken and customised heavily for this project from the [Code Institute](https://codeinstitute.net/) walk through project title "Task Manager".
+    - The following initial Python functions were taken and customised heavily for this project from the [Code Institute](https://codeinstitute.net/) walk through project title "Task Manager".
 
-        - `get_event`
-        - `search`
-        - `register`
-        - `sign_in`
-        - `sign_out`
-        - `profile`
-        - `create_event`
-        - `edit_event`
-        - `delete_event`
+        - `get_event()`
+        - `search()`
+        - `register()`
+        - `sign_in()`
+        - `sign_out()`
+        - `profile()`
+        - `create_event()`
+        - `edit_event()`
+        - `delete_event()`
 
 ---
 

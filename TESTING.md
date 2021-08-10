@@ -26,7 +26,7 @@ Outlined for each page is the decision why the warnings present have not been co
 
 ### [CSS Validation](testing/css-valid.png)
 
-- The majority of warnings present relate to unknown prefix vendors that have been added by [Autoprefixer](https://autoprefixer.github.io/) to increase cross browser compatibility. These warnings have not been corrected due to this know being a necessary practice.
+- The majority of warnings present relate to unknown prefix vendors that have been added by [Autoprefixer](https://autoprefixer.github.io/) to increase cross browser compatibility. These warnings have not been corrected due to this being a necessary practice.
 
 ---
 
@@ -106,7 +106,7 @@ Warnings Present:
 
 - *"As a first time visitor, I want to find creating an account a quick, simple and secure process."*
 
-    - All navigation links are displayed in a top level nav bar as well as in the footer. This increases the UX of the website as including links in the footer as well as a fixed overlay nav menu means the user does not need to scroll in order to navigate away from their current location.
+    - All navigation links are displayed as a top level feature as well as in the footer. This increases the UX of the website as including links in the footer as well as a fixed overlay nav menu means the user does not need to scroll in order to navigate away from their current location.
 
     - Depending on the users session status a CTA button is displayed on the landing page. If the user is not signed in the button will display *"Register"* therefore meaning a first time user can instantly sign up with one click.
 
@@ -126,7 +126,7 @@ Warnings Present:
 
 - *"As a returning visitor, I want to be able to register to attend supper clubs."*
 
-    - This functionality is possible through using a counter system. When the user creates the event a counter with the integer `0` is assigned to the event in the DB. The user can then add the amount of guests they would like to attend a specific event click to join using their email.
+    - This functionality is possible through using a counter system. When the user creates an event a counter field with the integer `0` is assigned to the event in the DB. The user/guest can then add the amount of guests they would like to attend a specific event by selecting to join using their email.
 
     - Their email is then assigned to said event if successful. For future builds I would like to set up a function that sends all guests signed up to an event a follow up email.
 
@@ -140,7 +140,7 @@ Warnings Present:
 
     - There are also two other instances of displaying the contact page link to the user. This happens if the user tries to delete an event that has guests signed up for.
 
-        - The reason for this is so that Admin can contact the guests in question prior to the events being deleted to ensure all users are aware and have an overall excellant experience.
+        - The reason for this is so that Admin can contact the guests in question prior to the events being deleted to ensure all users are aware and have an overall excellent experience.
 
     ![Screenshot of a unable to delete event modal](testing/user-testing/delete-event-error.png)
 
@@ -150,7 +150,7 @@ Warnings Present:
 
 - *"As a frequent visitor, I want to be able to create my own supper club evenings easily whilst adding all the necessary details specific to my event."*
 
-    - A thorough and well planned event form has been created that allows users to add all relevent information for this type of event. It also gives the user an option to add any additional information they would like to through an "Extras" text area.
+    - A thorough and well planned event form has been created that allows users to add all relevant information for this type of event. It also gives the user an option to add any additional information they would like to through an "Extras" text area.
 
     ![Screenshot of create event form](testing/user-testing/create-event.png)
 
@@ -160,7 +160,7 @@ Warnings Present:
 
 - *"As a frequent visitor, I want using the website to have a good community feel through active and regular user activity."*
 
-    - Achieving this initially has been done through creating a good amount of initial events through certain admin users. To continue this there have been CTA buttons placed throughout the website to prompt users to keep creating events, or if they haven't already to start creating events.
+    - Achieving this initially has been done through creating a good amount of events through certain admin users. To continue this there have been CTA buttons placed throughout the website to prompt users to keep creating events, or if they haven't already to start creating events.
 
     ![Screenshot of frequent user event cta](testing/user-testing/new-event-cta.png)
 
@@ -168,7 +168,7 @@ Warnings Present:
 
 ## Browser Compatibility and Device Responsiveness Testing
 
-- This project was tested throughout the build on various device types and sizes using Google Chrome Developer Tools as well as other web based applications mentioned in the ReadMe document such as [Am I Responsive](http://ami.responsivedesign.is/) and [Responsinator](http://www.responsinator.com/) to ensure fluid and error free responsive design. screenshots from this testing can be viewed [here.](testing/responsive-test/device-test.pdf) The deployed website was also continually tested on my own personal device of an iPhone 11 as well as an iPhone 12 mini to ensure the project worked as intended see screenshots below.
+- This project was tested throughout the build on various device types and sizes using Google Chrome Developer Tools as well as other web based applications mentioned in the ReadMe document such as [Am I Responsive](http://ami.responsivedesign.is/) and [Responsinator](http://www.responsinator.com/) to ensure fluid and error free responsive design, screenshots from this testing can be viewed [here.](testing/responsive-test/device-test.pdf) The deployed website was also continually tested on my own personal device of an iPhone 11 as well as an iPhone 12 mini to ensure the project worked as intended see screenshots below.
 
     **Iphone 12 Mini**
 
@@ -179,7 +179,7 @@ Warnings Present:
     ![Image of live site viewed on a Iphone 11](testing/responsive-test/iphone-11.jpg)
 
 
-Once the project was completed a cross browser compatibility test on five different browsers was carried out using a web based application [BrowserStack](https://www.browserstack.com/). I also checked this testing by downloading the browsers that were available to double check on the testing.
+Once the project was completed a cross browser compatibility test on five different browsers was carried out using a web based application [BrowserStack](https://www.browserstack.com/). I also checked this by downloading the browsers that were available to further ensure testing was thorough.
 
 This table in the pdf below shows how all the projects pages responded on different device screen sizes and being used on various browsers, the grading key is as follows;
 
@@ -191,7 +191,7 @@ Poor - Website still functions correctly but key elements do not appear as inten
 
 [See file here.](testing/cross-browser-test.pdf)
 
-- Referenced in the above document is a compatablity bug found in Safari due to the css property `background-attachment: fixed` not being fully supported. This was being used to create a parallax effect when scrolling, it has now been removed but below shows how this originally worked.
+- Referenced in the above document is a compatibility bug found in Safari due to the css property `background-attachment: fixed` not being fully supported. This was being used to create a parallax effect when scrolling, it has now been removed but below shows how this originally worked.
 
 [Video of original desired parallax effect viewing in Google Chromw](https://www.youtube.com/watch?v=Xhi7vaV7i70&ab_channel=LiamMcLuckie)
 
@@ -213,7 +213,7 @@ Below are two example screenshots of the profile page report for desktop and mob
 
 - Best practice dropped scores on form pages but this was due to the HTTPS not being secure which is not an issue for this project.
 
-- There were also some slight improvements to be made for accessiblity on various pages, mostly needing to add `aria-labels` to certain elements such as `anchor tags` that do not include text.
+- There were also some slight improvements to be made for accessibility on various pages, mostly needing to add `aria-labels` to certain elements such as `anchor tags` that do not include text.
 
 ## Bugs
 
@@ -223,7 +223,7 @@ Listed below are the major bugs that I encountered whilst building this project 
 
     Initially the issue came from trying to target specific classes etc but since they are dynamically added this wasn’t possible as targeting a specific class wasn’t enough.
 
-	- I then created the forEach loop which is currently there selecting all the buttons and adding an event listener which worked.
+	- I then created the `forEach()` loop which is currently there selecting all the buttons and adding an event listener which worked.
 	- Initially I tried to call a function when adding my event listener and doing the necessary logic checks within the called function on the .card-menu class. This worked but opened all the card menus regardless of the button clicked.
 	- I then started to look at using the ‘this’ keyword however this targeted the button itself.
 	- Finally I removed the button container code so the .card-menu was the next element sibling which is how I got to the current solution by performing DOM traversal.
@@ -234,7 +234,7 @@ Listed below are the major bugs that I encountered whilst building this project 
 
     `if (item.nextElementSibling.style.display === "none")`
 
-    The reason the double click was needed was because the style being checked for in the CSS wasn't expicitly written, therefore the first click created the above style property meaning the second click successfully displayed the menu as intended. The below code is the fix for the bug which just needed a simple or statement adding.
+    The reason the double click was needed was because the style being checked for in the CSS wasn't explicitly written, therefore the first click created the above style property meaning the second click successfully displayed the menu as intended. The below code is the fix for the bug which just needed a simple or statement adding.
 
     `if (item.nextElementSibling.style.display === "" || item.nextElementSibling.style.display === "none")`
 
@@ -242,7 +242,7 @@ Listed below are the major bugs that I encountered whilst building this project 
 
     The issue I came across with this was adding error messages to the event card in question, which worked correctly. However, each time the user got an error message it would display this as a new message under the current error message. This was due to the loop within my JavaScript function that was needed to access the dynamic content DOM elements.
 
-    This bug was fixed by adding a line of code within a `foreach` statement that removed an error message if there was already one present.
+    This bug was fixed by adding a line of code within a `foreach()` statement that removed an error message if there was already one present.
 
     `item.parentElement.querySelectorAll('.counter-error').forEach(counterError => counterError.remove());`
 
